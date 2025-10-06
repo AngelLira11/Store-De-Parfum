@@ -5,11 +5,17 @@
 }
 
 :root {
-	--purple-dark: #170312;
-	--purple-medium: #33032d;
-    --purple-light: #531253;
-    --gray-light: #eaeaea;
-    --white: #f4fffd;
+	--color-50: #ECF0F8;
+--color-100: #CAD4EC;
+--color-200: #A8B8E1;
+--color-300: #869CD5;
+--color-400: #6481C9;
+--color-500: #4265BD;
+--color-600: #36539B;
+--color-700: #2A4179;
+--color-800: #1E2E57;
+--color-900: #0F172B;
+--color-950: #070A13;
 }
 
 body {
@@ -27,30 +33,32 @@ p {
 .contenido-header {
 	width: 100%;
 	height: 100vh;
-	background-image: url(../img/bg-girl.jpeg);
+	background-image: url(../img/products/header.webp);
 	background-position: center;
+	/*background-repeat: no-repeat;*/
 	background-size: cover;
 	background-attachment: fixed;
 }
 
-.contenido-header .fondo {
+/*.contenido-header .fondo {
 	width: 0%;
 	height: 100%;
 	max-width: 100%;
-	background-image: url(../img/bg-top.png);
-}
+	/*background-image: url(../img/bg-top.png);
+}*/
 
 .contenido-header .texto {
 	width: calc(100vw - 20px);
 	height: 100vh;
-	font-size: 90px;
+	font-size: 10px;
 	font-weight: 400;
 	font-family: 'Noto Serif', serif;
 	font-style: italic;
 	display: flex;
+	font-size: 100px;
 	align-items: center;
 	justify-content: center;
-	color: purple;
+	color: var(--color-950);
 	mix-blend-mode: multiply;
 }
 
@@ -58,7 +66,7 @@ p {
 /* NAVBAR */
 /* ------------------------- */
 .menu {
-	background-color: var(--purple-medium);
+	background-color: var(--color-500);
 	width: 100%;
 	position: sticky;
 	top: 0;
@@ -76,16 +84,17 @@ p {
 	display: inline-block;
 	padding: 10px 30px;
 	font-size: 26px;
-	background-color: var(--purple-medium);
+	background-color: var(--color-500);
 	margin: 0 10px;
 	transition: .5s ease all;
-	color: var(--gray-light);
+	color: var(--color-50);
 	text-decoration: none;
 }
 
 .menu a:hover {
-	transform: translateY(18px);
-	background-color: var(--purple-light);
+	transform: translateY(18px) translatex(10px);
+
+	background-color: var(--color-700);
 }
 
 /* ------------------------- */
@@ -97,7 +106,7 @@ p {
 
 .subtitulo {
 	font-size: 20px;
-	color: var(--purple-dark);
+	color: var(--color-50);
 	font-family: 'Noto Serif', serif;
 	font-weight: 700;
 	z-index: 2;
@@ -106,7 +115,7 @@ p {
 }
 
 .subtitulo span {
-	background-color: var(--gray-light);
+	background-color: var(--color-500);
 	padding: 0 15px;
 	z-index: 99;
 	position: relative;
@@ -117,7 +126,7 @@ p {
 	display: inline-block;
 	height: 2px;
 	width: 100%;
-	background: var(--purple-dark);
+	background: var(--color-950);
 	position: relative;
 	top: -29px;
 	z-index: 1;
@@ -134,7 +143,7 @@ p {
 .nosotros .enlace {
 	display: inline-block;
 	margin-top: 40px;
-	color: var(--purple-light);
+	color: var(--color-500);
 	font-weight: 700;
 	border-bottom: 1px solid transparent;
 	transition: .3s ease all;
@@ -143,14 +152,14 @@ p {
 .nosotros .enlace:hover {
 	text-decoration: none;
 	letter-spacing: 3px;
-	border-bottom: 1px solid var(--purple-light);
+	border-bottom: 1px solid var(--color-900);
 }
 
 /* ------------------------- */
 /* Productos */
 /* ------------------------- */
 .productos {
-	background: var(--gray-light);
+	background: #E6F2FF;
 	padding: 20px;
 	margin-bottom: 60px;
 }
@@ -166,7 +175,9 @@ p {
 .productos .producto {
 	position: relative;
 	width: 100%;
+	
 }
+
 
 .productos .overlay {
 	width: 0%;
@@ -175,7 +186,7 @@ p {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background: var(--purple-light);
+	background: var(--color-200);
 	overflow: hidden;
 	transition: .5s ease;
 }
@@ -194,12 +205,12 @@ p {
 	font-size: 18px;
 	transform: translate(-50%, -50%);
 	overflow: hidden;
-	border-top: 1px solid #fff;
-	border-bottom: 1px solid #fff;
+	border-top: 1px solid var(--color-800);
+	border-bottom: 1px solid var(--color-800);
 }
 
 .productos .btn-productos {
-	background-color: var(--purple-light);
+	background-color: var(--color-300);
 	color: #fff;
 	padding: 7px 20px;
 	text-transform: uppercase;
@@ -210,7 +221,7 @@ p {
 
 .productos .btn-productos:hover {
 	background-color: transparent;
-	border: 2px solid var(--purple-light);
+	border: 2px solid var(--color-700);
 	color: var(--purple-light);
 }
 
@@ -220,7 +231,7 @@ p {
 .separador {
 	width: 100%;
 	height: 250px;
-	background-image: url('../img/bg-separator.jpeg');
+	background-image: url('../img/products/header4.webp');
 	background-position: center;
 	background-size: cover;
 	background-attachment: fixed;
@@ -229,6 +240,7 @@ p {
 
 .separador p {
 	height: 100%;
+	color: rgb(0, 0, 0);
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -264,7 +276,7 @@ p {
 
 .redes-sociales {
 	padding: 10px;
-	background-color: var(--purple-light);
+	background-color: var(--color-800);
 }
 
 .redes-sociales img {
