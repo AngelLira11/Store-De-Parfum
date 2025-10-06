@@ -323,6 +323,134 @@ p {
 }
 
 /* ------------------------- */
+/* Layout sin Bootstrap */
+/* ------------------------- */
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+/* Nosotros Section */
+.nosotros-content {
+	text-align: center;
+	padding: 0 15px;
+}
+
+/* Productos Grid */
+.productos-header {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.productos-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 15px;
+	justify-items: center;
+	padding: 0 15px;
+}
+
+.producto-item {
+	width: 100%;
+	max-width: 300px;
+}
+
+.producto-item img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+/* Acerca de Section */
+.acerca-de {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	gap: 30px;
+	padding: 0 15px;
+}
+
+.servicio-item {
+	flex: 1;
+	min-width: 300px;
+	text-align: center;
+}
+
+.servicio-item figure {
+	margin: 0;
+}
+
+.servicio-item strong {
+	display: block;
+	margin-bottom: 10px;
+}
+
+/* Galería Grid */
+.galeria-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 0;
+}
+
+.galeria-item {
+	width: 100%;
+	overflow: hidden;
+}
+
+.galeria-item img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+/* Contacto Section */
+.contacto-container {
+	width: 100%;
+}
+
+.contacto {
+	padding: 40px 0;
+}
+
+.contacto-header {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.mapa-container {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.mapa-container iframe {
+	width: 100%;
+	max-width: 1100px;
+	height: 250px;
+	border: 0;
+}
+
+.telefono {
+	text-align: center;
+	padding: 15px 0;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	margin: 20px 0;
+}
+
+/* Footer Redes Sociales */
+.redes-container {
+	text-align: center;
+}
+
+/* Separador */
+.separador p {
+	text-align: center;
+	color: white;
+}
+
+/* ------------------------- */
 /* Mediaqueries */
 /* ------------------------- */
 @media screen and (max-width: 992px) {
@@ -343,6 +471,41 @@ p {
 		font-size: 30px;
 	}
 
+	.productos-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 10px;
+	}
+
+	.acerca-de {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.servicio-item {
+		min-width: auto;
+		width: 100%;
+		max-width: 500px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.productos-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	
+	.galeria-grid {
+		grid-template-columns: 1fr;
+	}
+	
+	.mapa-container iframe {
+		height: 200px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.productos-grid {
+		grid-template-columns: 1fr;
+	}
 }
 
 	.form-container {
