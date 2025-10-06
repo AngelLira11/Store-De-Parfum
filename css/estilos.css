@@ -19,8 +19,19 @@
 }
 
 body {
-	font-size: 20px;
-	font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+
+    /* --- INICIA EL ARREGLO PARA EL FOOTER --- */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* --- TERMINA EL ARREGLO PARA EL FOOTER --- */
+}
+
+/* Agrega esta nueva regla justo después de la regla de body */
+main {
+    flex-grow: 1;
 }
 
 p {
@@ -58,8 +69,29 @@ p {
 	font-size: 100px;
 	align-items: center;
 	justify-content: center;
-	color: var(--color-950);
-	mix-blend-mode: multiply;
+	color: white;
+	text-shadow:
+    -3px -3px 0 #aa8a0b,  /* Sombra superior izquierda */
+     1px -1px 0 #000,  /* Sombra superior derecha */
+    -1px  1px 0 #000,  /* Sombra inferior izquierda */
+     1px  1px 0 #000;  /* Sombra inferior derecha */
+}
+
+.texto-separador {
+	font-size: 30px;
+	font-weight: 700;
+	font-family: 'Noto Serif', serif;
+	font-style: italic;
+	display: flex;
+	font-size: 40px;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	text-shadow:
+	-2px -2px 0 #aa8a0b,  /* Sombra superior izquierda */
+	 -1px -1px 0 #000000,  /* Sombra superior derecha */
+	-1px  1px 0 #000000,  /* Sombra inferior izquierda */
+	 1px  1px 0 #aa8a0b;  /* Sombra inferior derecha */
 }
 
 /* ------------------------- */
@@ -240,7 +272,7 @@ p {
 
 .separador p {
 	height: 100%;
-	color: rgb(0, 0, 0);
+	color: rgb(255, 255, 255);
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -312,3 +344,60 @@ p {
 	}
 
 }
+
+	.form-container {
+		width: 90%;
+		padding: 20px;
+		background-color: var(--color-50);
+		border-radius: 8px;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		margin: auto;
+		max-width: 600px;
+	}
+
+	.form-container .form-group {
+		margin-bottom: 15px; 
+		text-align: center;
+	}
+	.form-container label {
+		display: block;
+		margin-bottom: 5px;
+		font-weight: bold;
+	}
+
+	.form-container input[type="text"],
+	.form-container input[type="email"],
+	.form-container input[type="password"],
+	.form-container input[type="tel"] {
+		width: 100%;
+		padding: 10px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		box-sizing: border-box;
+	}
+
+	.form-container input[type="tel"] {
+		margin-bottom: 15px;
+	}
+
+	.form-container input[type="submit"] {
+		width: 100%;
+		padding: 10px;
+		background-color: var(--color-500);
+		color: white;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+		font-size: 16px;
+	}
+
+	.form-container input[type="submit"]:hover {
+		background-color: var(--color-700);
+	}
+	.titulo {
+		text-align: center;
+	}
+
+	.col-auto {
+		text-align: center;
+	}
