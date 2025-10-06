@@ -112,21 +112,69 @@ p {
 	margin-bottom: 60px;
 }
 
-.menu a {
-	display: inline-block;
-	padding: 10px 30px;
-	font-size: 26px;
-	background-color: var(--color-500);
-	margin: 0 10px;
-	transition: .5s ease all;
-	color: var(--color-50);
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.menu > ul > li { 
+    position: relative;
+    margin: 0 10px; 
+}
+
+.menu > ul > li > a {
+    display: block; 
+    padding: 10px 30px;
+    font-size: 26px;
+    background-color: var(--color-500);
+    transition: .5s ease all;
+    color: var(--color-50);
+    text-decoration: none;
+}
+
+.menu > ul > li > a:hover {
+    transform: translateY(18px) translateX(10px);
+    background-color: var(--color-700);
+}
+
+/* --- Estilos para el Submenú --- */
+.menu .submenu {
+    display: none;
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    background-color: var(--color-500); 
+    min-width: 220px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1000;
+    border-radius: 5px; 
+    padding: 10px 0; 
+}
+
+.menu .submenu li a {
+    padding: 5px 20px;
+    font-size: 16px; 
+    color: #ffffff; 
+    font-style: normal; 
+    transition: .3s ease all; 
 	text-decoration: none;
 }
 
-.menu a:hover {
-	transform: translateY(18px) translatex(10px);
+.menu .submenu li a:hover {
+    background-color: var(--color-600); 
+    padding-left: 25px; 
+}
 
-	background-color: var(--color-700);
+.menu li.dropdown:hover > .submenu {
+    display: block;
+}
+
+.menu li.dropdown > a:hover {
+    transform: none; 
 }
 
 /* ------------------------- */
@@ -516,6 +564,7 @@ p {
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 		margin: auto;
 		max-width: 600px;
+		margin-bottom: 50px;
 	}
 
 	.form-container .form-group {
@@ -563,4 +612,10 @@ p {
 
 	.col-auto {
 		text-align: center;
+	}
+
+	.texto-enlace {
+		text-align: center;
+		margin-top: 15px;
+		font-size: 14px;
 	}
