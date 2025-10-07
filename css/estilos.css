@@ -454,6 +454,8 @@ header {
 .galeria-item {
 	width: 100%;
 	overflow: hidden;
+	height: 350px; 
+	position: relative; 
 }
 
 .galeria-item img {
