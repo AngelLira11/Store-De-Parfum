@@ -629,3 +629,236 @@ header {
 		margin-top: 15px;
 		font-size: 14px;
 	}
+
+	.form-container textarea {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-family: 'Open Sans', sans-serif;
+	resize: vertical;
+}
+
+/* Título del mapa */
+.mapa-titulo {
+	text-align: center;
+	margin-bottom: 20px;
+	color: var(--color-800);
+}
+
+.contacto-hero {
+	width: 100%;
+	height: 40vh;
+	min-height: 300px;
+	background-image: url('https://images3.alphacoders.com/641/thumb-1920-641460.jpg');
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 60px;
+	position: relative;
+}
+
+.contacto-hero::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(66, 101, 189, 0.6);
+}
+
+.contacto-hero-texto {
+	position: relative;
+	z-index: 2;
+	text-align: center;
+}
+
+.contacto-hero-texto h1 {
+	font-size: 60px;
+	font-weight: 700;
+	font-family: 'Noto Serif', serif;
+	font-style: italic;
+	color: white;
+	text-shadow:
+		-2px -2px 0 #aa8a0b,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+	.contacto-hero {
+		height: 30vh;
+		min-height: 250px;
+	}
+	
+	.contacto-hero-texto h1 {
+		font-size: 40px;
+	}
+}
+
+.contacto-page .menu {
+	margin-bottom: 0;
+}
+
+/* ========================= */
+/* Página de Registro */
+/* ========================= */
+
+/* Hero pequeño de registro */
+.registro-page .menu {
+	margin-bottom: 0;
+}
+
+.registro-hero {
+	width: 100%;
+	height: 35vh;
+	min-height: 200px;
+	background-image: url('https://images.pexels.com/photos/14687024/pexels-photo-14687024.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200');
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 40px;
+	position: relative;
+}
+
+.registro-hero::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(135deg, rgba(66, 101, 189, 0.7), rgba(42, 65, 121, 0.8));
+}
+
+.registro-hero-texto {
+	position: relative;
+	z-index: 2;
+	text-align: center;
+}
+
+.registro-hero-texto h1 {
+	font-size: 48px;
+	font-weight: 700;
+	font-family: 'Noto Serif', serif;
+	font-style: italic;
+	color: white;
+	text-shadow:
+		-2px -2px 0 #aa8a0b,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+	margin: 0;
+}
+
+.registro-page .form-container {
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+	margin-top: 0;
+	margin-bottom: 60px;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.registro-page .form-container:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+}
+
+.form-titulo {
+	text-align: center;
+	font-size: 32px;
+	font-family: 'Noto Serif', serif;
+	color: var(--color-800);
+	margin-bottom: 25px;
+	font-weight: 700;
+}
+
+.registro-page .form-group {
+	margin-bottom: 20px;
+}
+
+.registro-page .form-container label {
+	color: var(--color-800);
+	font-size: 16px;
+	margin-bottom: 8px;
+}
+
+.registro-page .form-container input[type="text"],
+.registro-page .form-container input[type="email"],
+.registro-page .form-container input[type="password"],
+.registro-page .form-container input[type="tel"] {
+	transition: all 0.3s ease;
+	border: 2px solid #e0e0e0;
+	font-size: 15px;
+}
+
+.registro-page .form-container input[type="text"]:focus,
+.registro-page .form-container input[type="email"]:focus,
+.registro-page .form-container input[type="password"]:focus,
+.registro-page .form-container input[type="tel"]:focus {
+	outline: none;
+	border-color: var(--color-500);
+	box-shadow: 0 0 0 3px rgba(66, 101, 189, 0.1);
+	transform: translateY(-2px);
+}
+
+.registro-page .form-container input[type="submit"] {
+	margin-top: 10px;
+	font-size: 18px;
+	font-weight: 600;
+	transition: all 0.3s ease;
+	box-shadow: 0 4px 12px rgba(66, 101, 189, 0.3);
+}
+
+.registro-page .form-container input[type="submit"]:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px rgba(66, 101, 189, 0.4);
+}
+
+.registro-page .texto-enlace {
+	margin-top: 20px;
+	color: var(--color-700);
+}
+
+.registro-page .texto-enlace a {
+	color: var(--color-500);
+	font-weight: 600;
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+.registro-page .texto-enlace a:hover {
+	color: var(--color-700);
+	text-decoration: underline;
+}
+
+/* Responsive para registro */
+@media screen and (max-width: 768px) {
+	.registro-hero {
+		height: 20vh;
+		min-height: 150px;
+	}
+	
+	.registro-hero-texto h1 {
+		font-size: 36px;
+	}
+	
+	.form-titulo {
+		font-size: 26px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.registro-hero-texto h1 {
+		font-size: 28px;
+	}
+}

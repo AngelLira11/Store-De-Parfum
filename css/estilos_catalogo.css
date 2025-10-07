@@ -279,3 +279,7 @@ header {
 .menu li.dropdown > a:hover {
     transform: none; 
 }
+
+.catalogo-page .menu {
+	margin-bottom: 0;
+}
