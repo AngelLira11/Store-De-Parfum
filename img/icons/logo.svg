@@ -1,0 +1,61 @@
+<svg viewBox="0 0 180 50" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradiente dorado sofisticado -->
+    <linearGradient id="luxuryGold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#C9A961;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#E8D4A0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C9A961;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Gradiente azul elegante -->
+    <linearGradient id="elegantBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4265BD;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2A4179;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Marco decorativo minimalista -->
+  <g transform="translate(15, 10)">
+    <!-- Esquinas decorativas -->
+    <path d="M 0 8 L 0 0 L 8 0" stroke="url(#luxuryGold)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <path d="M 150 0 L 158 0 L 158 8" stroke="url(#luxuryGold)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <path d="M 158 22 L 158 30 L 150 30" stroke="url(#luxuryGold)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <path d="M 8 30 L 0 30 L 0 22" stroke="url(#luxuryGold)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Monograma "SDP" elegante -->
+  <g transform="translate(20, 12)">
+    <text x="0" y="20" font-family="'Playfair Display', 'Georgia', serif" font-size="24" font-weight="600" fill="url(#elegantBlue)" letter-spacing="-1">
+      S
+    </text>
+    <text x="14" y="20" font-family="'Playfair Display', 'Georgia', serif" font-size="24" font-weight="600" fill="url(#luxuryGold)" letter-spacing="-1">
+      D
+    </text>
+    <text x="28" y="20" font-family="'Playfair Display', 'Georgia', serif" font-size="24" font-weight="600" fill="url(#elegantBlue)" letter-spacing="-1">
+      P
+    </text>
+  </g>
+  
+  <!-- Separador vertical elegante -->
+  <line x1="65" y1="18" x2="65" y2="38" stroke="url(#luxuryGold)" stroke-width="0.5" opacity="0.6"/>
+  <circle cx="65" cy="28" r="2" fill="url(#luxuryGold)" opacity="0.3"/>
+  
+  <!-- Texto principal -->
+  <text x="75" y="25" font-family="'Cormorant Garamond', 'Georgia', serif" font-size="11" font-weight="300" fill="#2A4179" letter-spacing="3">
+    STORE DE
+  </text>
+  <text x="75" y="38" font-family="'Cormorant Garamond', 'Georgia', serif" font-size="13" font-weight="600" fill="url(#elegantBlue)" letter-spacing="4">
+    PARFUM
+  </text>
+  
+  <!-- Detalle decorativo debajo -->
+  <g transform="translate(75, 40)">
+    <line x1="0" y1="0" x2="25" y2="0" stroke="url(#luxuryGold)" stroke-width="0.8"/>
+    <circle cx="12.5" cy="0" r="1.2" fill="url(#luxuryGold)"/>
+    <line x1="30" y1="0" x2="75" y2="0" stroke="url(#luxuryGold)" stroke-width="0.8"/>
+  </g>
+  
+  <!-- Detalles de lujo sutiles -->
+  <circle cx="170" cy="25" r="1" fill="url(#luxuryGold)" opacity="0.4"/>
+  <circle cx="175" cy="28" r="0.7" fill="#4265BD" opacity="0.3"/>
+</svg>
