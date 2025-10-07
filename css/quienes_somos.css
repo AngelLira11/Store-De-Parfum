@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+}
+
+:root {
+	--color-50: #ECF0F8;
+--color-100: #CAD4EC;
+--color-200: #A8B8E1;
+--color-300: #869CD5;
+--color-400: #6481C9;
+--color-500: #4265BD;
+--color-600: #36539B;
+--color-700: #2A4179;
+--color-800: #1E2E57;
+--color-900: #0F172B;
+--color-950: #070A13;
+}
+
+.container {
+    width: 100%; /* Ancho que deja un margen a los lados */
+    max-width: 100%; /* Evita que crezca demasiado en pantallas muy grandes */
+    margin: 0 auto; /* Centra el contenedor */
+}
+
+
+/* MENU */
+
+.menu {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0;
+    background-color: var(--color-500);
+    position: sticky; /* Menú fijo al hacer scroll */
+    top: 0;
+    z-index: 100;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    font-family: 'Noto Serif', serif;
+    font-size: 20px;
+    transition: .5s ease all;
+
+}
+
+.menu a:hover {
+    transform: translateY(18px) translatex(10px);
+    background-color: var(--color-800);
+    border-radius: 5px;
+}
+
+/* nosotros*/ 
+
+.nosotros {
+    width: 90%;
+    margin-left: 70px;
+	margin-bottom: 10px;
+    margin-top: 60px;
+
+}
+
+.subtitulo {
+	font-size: 20px;
+   
+	color: var(--color-50);
+	font-family: 'Noto Serif', serif;
+	font-weight: 700;
+	z-index: 2;
+	text-transform: uppercase;
+	margin-bottom: 20px;
+}
+
+.subtitulo span {
+     margin-left: 40%;
+	background-color: var(--color-500);
+	padding: 0 15px;
+	z-index: 99;
+	position: relative;
+    
+}
+
+.subtitulo::after {
+	content: "";
+	display: inline-block;
+	height: 2px;
+	width: 100%;
+	background: var(--color-950);
+	position: relative;
+	top: -29px;
+	z-index: 1;
+}
+
+/* TEXTO */
+
+.informacion{
+    width: 90%;
+    margin-left: 70px;
+	margin-bottom: 60px;
+
+}
+
+.informacion .parrafo{
+    text-align: justify;
+    font-size: 20px;
+    font-family:'Arial';
+}
+
+/* IMAGEN */
+
+.foto{
+    margin-left: 70px;
+	margin-bottom: 60px;
+    align-items: center;
+    align-content: center;
+}
+
+.foto img{
+    width: 1360px;
+    height: auto;
+    
+}
+
+/* --- Footer y Redes Sociales --- */
+.redes-sociales {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+    background-color: var(--color-700);
+}
+
+.redes-sociales a {
+    margin: 0 10px;
+}
+
+.redes-sociales img {
+    width: 50px;
+    height: 50px;
+    transition: opacity 0.3s;
+    
+}
+
+.redes-sociales img:hover {
+    opacity: 0.7;
+}
