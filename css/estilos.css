@@ -18,18 +18,22 @@
 --color-950: #070A13;
 }
 
+.menu .home-icon {
+    width: 200px;   
+    height: auto; 
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
 body {
     font-size: 20px;
     font-family: 'Open Sans', sans-serif;
 
-    /* --- INICIA EL ARREGLO PARA EL FOOTER --- */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    /* --- TERMINA EL ARREGLO PARA EL FOOTER --- */
 }
 
-/* Agrega esta nueva regla justo después de la regla de body */
 main {
     flex-grow: 1;
 }
@@ -110,6 +114,7 @@ p {
 	font-family: 'Noto Serif', serif;
 	font-style: italic;
 	margin-bottom: 60px;
+	position: sticky; /* Menú fijo al hacer scroll */
 }
 
 .menu ul {
