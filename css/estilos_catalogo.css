@@ -15,40 +15,41 @@ body {
 
 :root {
 	--color-50: #ECF0F8;
---color-100: #CAD4EC;
---color-200: #A8B8E1;
---color-300: #869CD5;
---color-400: #6481C9;
---color-500: #4265BD;
---color-600: #36539B;
---color-700: #2A4179;
---color-800: #1E2E57;
---color-900: #0F172B;
---color-950: #070A13;
+	--color-100: #CAD4EC;
+	--color-200: #A8B8E1;
+	--color-300: #869CD5;
+	--color-400: #6481C9;
+	--color-500: #4265BD;
+	--color-600: #36539B;
+	--color-700: #2A4179;
+	--color-800: #1E2E57;
+	--color-900: #0F172B;
+	--color-950: #070A13;
 }
 
 .container {
-    width: 100%; /* Ancho que deja un margen a los lados */
-    max-width: 100%; /* Evita que crezca demasiado en pantallas muy grandes */
-    margin: 0 auto; /* Centra el contenedor */
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
 /* --- Slider (Ajuste para móvil) --- */
 .slider {
     width: 100%;
-    overflow: hidden; /* Oculta las imágenes fuera de vista */
+    overflow: hidden;
     margin-bottom: 20px;
 }
 
 .slider ul {
     display: flex;
-    width: 400%; /* El cuádruple del ancho para las 4 imágenes */
+    width: 400%;
     list-style: none;
-    animation: slide 15s infinite alternate; /* Animación de ejemplo */
+    animation: slide 15s infinite alternate;
 }
 
 .slider li {
-    width: 25%; /* Cada li ocupa 1/4 del ancho total */
+    width: 25%;
 }
 
 .slider img {
@@ -68,7 +69,6 @@ body {
     100% { margin-left: -300%; }
 }
 
-
 /* --- Título de Productos --- */
 .tit {
     text-align: center;
@@ -86,15 +86,13 @@ body {
 /* --- Catálogo de Productos (La parte clave de la responsividad) --- */
 .mostrador {
     display: grid;
-    /* En móvil, solo 2 columnas */
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     padding: 20px 0;
 }
 
 .fila {
-    /* Desactivamos las filas y dejamos que grid se encargue del layout */
-    display: contents; 
+    display: contents;
 }
 
 .item {
@@ -104,7 +102,7 @@ body {
     text-align: center;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .item:hover {
@@ -114,8 +112,8 @@ body {
 
 .contenedor_foto img {
     width: 100%;
-    max-height: 150px; /* Limita la altura de la imagen en móvil */
-    object-fit: contain; /* Asegura que la imagen se vea completa */
+    max-height: 150px;
+    object-fit: contain;
     margin-bottom: 10px;
 }
 
@@ -149,38 +147,6 @@ body {
     opacity: 0.7;
 }
 
-
-/* ======================================================= */
-/* MEDIA QUERIES (Adaptación a Tablets y Desktop) */
-/* ======================================================= */
-
-/* Adaptación para Tabletas (mínimo 768px) */
-@media screen and (min-width: 768px) {
-    /* Catálogo: Pasa de 2 a 3 columnas */
-    .mostrador {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
-    .contenedor_foto img {
-        max-height: 200px; /* Aumenta un poco la altura de la imagen */
-    }
-
-}
-
-/* Adaptación para Escritorio (mínimo 1024px) */
-@media screen and (min-width: 1024px) {
-    
-    /* Catálogo: Pasa de 3 a 4 columnas */
-    .mostrador {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    .contenedor_foto img {
-        max-height: 220px; /* Altura final de la imagen */
-    }
-
-}
-
 /* ------------------------- */
 /* NAVBAR */
 /* ------------------------- */
@@ -203,7 +169,6 @@ header {
 	font-family: 'Noto Serif', serif;
 	font-style: italic;
 	margin-bottom: 60px;
-    position: sticky; 
 }
 
 .menu .home-icon {
@@ -219,7 +184,8 @@ header {
     padding: 0;
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .menu > ul > li { 
@@ -282,4 +248,210 @@ header {
 
 .catalogo-page .menu {
 	margin-bottom: 0;
+}
+
+/* ======================================================= */
+/* MEDIA QUERIES (Adaptación a Tablets y Desktop) */
+/* ======================================================= */
+
+/* Adaptación para Tabletas (mínimo 768px) */
+@media screen and (min-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    /* Catálogo: Pasa de 2 a 3 columnas */
+    .mostrador {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+    
+    .contenedor_foto img {
+        max-height: 200px;
+    }
+
+    .subtitulo {
+        font-size: 1.8rem;
+    }
+
+    .descripcion {
+        font-size: 1rem;
+    }
+
+    .redes-sociales img {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* Adaptación para Escritorio (mínimo 1024px) */
+@media screen and (min-width: 1024px) {
+    .container {
+        max-width: 1200px;
+        padding: 0 30px;
+    }
+
+    /* Catálogo: Pasa de 3 a 4 columnas */
+    .mostrador {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+    }
+
+    .contenedor_foto img {
+        max-height: 220px;
+    }
+
+    .subtitulo {
+        font-size: 2rem;
+    }
+
+    .item {
+        padding: 20px;
+    }
+
+    .redes-sociales img {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* ======================================================= */
+/* RESPONSIVE NAVBAR - MISMO QUE EL OTRO CSS */
+/* ======================================================= */
+
+/* Tablets grandes y pantallas medianas */
+@media screen and (max-width: 992px) {
+    .menu > ul > li > a {
+        font-size: 20px;
+        padding: 8px 20px;
+    }
+
+    .menu .home-icon {
+        width: 150px;
+    }
+}
+
+/* Tablets y móviles grandes */
+@media screen and (max-width: 768px) {
+    /* Menú más compacto en tablets */
+    .menu {
+        margin-bottom: 30px;
+    }
+
+    .menu > ul > li {
+        margin: 5px 5px;
+    }
+
+    .menu > ul > li > a {
+        font-size: 18px;
+        padding: 8px 15px;
+    }
+
+    .menu .home-icon {
+        width: 120px;
+    }
+
+    /* Desactivar efectos hover en móviles */
+    .menu > ul > li > a:hover {
+        transform: none;
+    }
+}
+
+/* Móviles */
+@media screen and (max-width: 480px) {
+    /* Menú compacto para móviles pequeños */
+    .menu {
+        padding: 5px 0;
+        margin-bottom: 20px;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .menu > ul > li {
+        margin: 3px 0;
+        width: 100%;
+    }
+
+    .menu > ul > li > a {
+        font-size: 16px;
+        padding: 10px 15px;
+        width: 100%;
+    }
+
+    .menu .home-icon {
+        width: 100px;
+        margin-bottom: 5px;
+    }
+
+    .menu .submenu {
+        position: static;
+        box-shadow: none;
+        min-width: 100%;
+    }
+
+    /* Ajustes del catálogo en móviles pequeños */
+    .mostrador {
+        gap: 15px;
+        padding: 15px 0;
+    }
+
+    .item {
+        padding: 10px;
+    }
+
+    .contenedor_foto img {
+        max-height: 120px;
+    }
+
+    .descripcion {
+        font-size: 0.85rem;
+    }
+
+    .subtitulo {
+        font-size: 1.3rem;
+    }
+
+    .slider {
+        margin-bottom: 15px;
+    }
+
+    .redes-sociales {
+        padding: 15px 0;
+    }
+
+    .redes-sociales img {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* Móviles muy pequeños */
+@media screen and (max-width: 360px) {
+    .menu > ul > li > a {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    .menu .home-icon {
+        width: 80px;
+    }
+
+    .mostrador {
+        gap: 10px;
+    }
+
+    .contenedor_foto img {
+        max-height: 100px;
+    }
+
+    .descripcion {
+        font-size: 0.8rem;
+    }
+
+    .subtitulo {
+        font-size: 1.2rem;
+    }
 }
