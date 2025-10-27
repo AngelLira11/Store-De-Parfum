@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,27 +9,7 @@
     <title>Contacto</title>
 </head>
 <body class="contacto-page">
-    <header>
-	<nav class="menu">
-	<ul>
-		<li class="home">
-      	<a href="index.html">
-        <img src="./img/icons/logo.svg" alt="Página de inicio" class="home-icon"> 
-      	</a>
-    	</li>
-		<li><a href="quienes_somos.html">Quiénes Somos</a></li>
-		<li><a href="catalogo.html">Catálogo</a></li>
-		<li><a href="contacto.html">Contacto</a></li>
-		<li class="dropdown">
-		<a href="#">Mi Cuenta</a>
-		<ul class="submenu">
-			<li><a href="#">Iniciar Sesión</a></li>
-			<li><a href="registro.html">Registrarse</a></li>
-			</ul>
-		</li>
-	</ul>
-	</nav>
-    </header>
+    <?php include("../backend/header.php"); ?>
 
     <main>
         <section class="contacto-hero">

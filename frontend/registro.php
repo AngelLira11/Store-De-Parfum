@@ -9,27 +9,7 @@
     <title>Registro</title>
 </head>
 <body class="registro-page">
-    <header>
-	<nav class="menu">
-	<ul>
-		<li class="home">
-      	<a href="index.html">
-        <img src="./img/icons/logo.svg" alt="Página de inicio" class="home-icon"> 
-      	</a>
-    	</li>
-		<li><a href="quienes_somos.html">Quiénes Somos</a></li>
-		<li><a href="catalogo.html">Catalogo</a></li>
-		<li><a href="contacto.html">Contacto</a></li>
-		<li class="dropdown">
-		<a href="#">Mi Cuenta</a>
-		<ul class="submenu">
-			<li><a href="#">Iniciar Sesión</a></li>
-			<li><a href="registro.html">Registrarse</a></li>
-			</ul>
-		</li>
-	</ul>
-	</nav>
-    </header>
+    <?php include("../backend/header.php"); ?>
 
     <main>
         <section class="registro-hero">
@@ -65,7 +45,7 @@
                     
                     <input type="submit" value="Registrar">
                 </form>
-                <p class="texto-enlace">¿Ya tienes una cuenta? <a href="#">Inicia sesión aquí.</a></p>
+                <p class="texto-enlace">¿Ya tienes una cuenta? <a href="login.html">Inicia sesión aquí.</a></p>
             </div>
         </div>
     </main>

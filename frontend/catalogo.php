@@ -9,28 +9,8 @@
     <title>CATALOGO</title>
 </head>
 <body class="catalogo-page">
-     <header>
-	<nav class="menu">
-	<ul>
-		<li class="home">
-      	<a href="index.html">
-        <img src="./img/icons/logo.svg" alt="Página de inicio" class="home-icon"> 
-      	</a>
-    	</li>
-		<li><a href="quienes_somos.html">Quiénes Somos</a></li>
-		<li><a href="catalogo.html">Catalogo</a></li>
-		<li><a href="contacto.html">Contacto</a></li>
-		<li class="dropdown">
-		<a href="#">Mi Cuenta</a>
-		<ul class="submenu">
-			<li><a href="#">Iniciar Sesión</a></li>
-			<li><a href="registro.html">Registrarse</a></li>
-			</ul>
-		</li>
-	</ul>
-	</nav>
-     </header>
-    <div class="container">
+     <?php include("../backend/header.php"); ?>
+     <div class="container">
         <div class="slider">
         <ul>
             <li><img src="img/catalogo/oferta1.webp" alt=""></li>
