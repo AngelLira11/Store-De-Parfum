@@ -3,7 +3,7 @@
 $servername = "localhost"; // Hay que cambiar esto cuando se suba al servidor
 $username = "root";
 $password = "";
-$dbname = "sistema_venta";
+$dbname = "sistema_venta"; // Funciona en el XAMPP
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 

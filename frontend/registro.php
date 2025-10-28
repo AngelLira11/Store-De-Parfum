@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,7 +24,7 @@
         <div class="container">
             <div class="form-container">
                 <h2 class="form-titulo">Crear Cuenta</h2>
-                <form action="#" method="POST">
+                <form action="../backend/manejo_registro.php" method="POST">
                     <div class="form-group">
                         <label for="email">Correo Electrónico:</label>
                         <input type="email" id="email" name="email" placeholder="juanperez@ejemplo.com" required>

@@ -1,5 +1,15 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Manejo de logout
+if(isset($_GET['logout']) && $_GET['logout'] == 'true') {
+    session_unset();
+    session_destroy();
+    header("Location: index.php"); 
+    exit();
+}
 ?>
 <link rel="stylesheet" href="../frontend/css/estilos.css">
 
@@ -17,12 +27,16 @@ session_start();
             <a href="#">Mi Cuenta</a>
             <ul class="submenu">
 <?php
-if(isset($_SESSION['usuario']) && $_SESSION['usuario'] && !isset($_SESSION['is_admin'])) {
+if(isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true) {
+    echo '<li><a href="admin_panel.php">Panel de Administración</a></li>';
     echo '<li><a href="perfil.php">Perfil</a></li>';
     echo '<li><a href="logout.php">Cerrar Sesión</a></li>';
-} elseif(isset($_SESSION['is_admin'])) {
-    echo '<li><a href="admin_panel.php">Panel de Administración</a></li>';
+} elseif(isset($_SESSION['usr_id'])) {
+    // Usuario normal (tiene sesión pero no es admin)
+    echo '<li><a href="perfil.php">Mi Perfil</a></li>';
+    echo '<li><a href="?logout=true">Cerrar Sesión</a></li>';
 } else {
+    // No hay sesión activa
     echo '<li><a href="login.php">Iniciar Sesión</a></li>';
     echo '<li><a href="registro.php">Registrarse</a></li>';
 }
