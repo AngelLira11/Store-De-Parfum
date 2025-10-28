@@ -3,6 +3,11 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
+$total_items = 0; // Contador de items en el carrito
+if (isset($_SESSION['carrito'])) {
+    $total_items = array_sum($_SESSION['carrito']);
+}
+
 // Manejo de logout
 if(isset($_GET['logout']) && $_GET['logout'] == 'true') {
     session_unset();
@@ -43,5 +48,11 @@ if(isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true) {
 ?>
             </ul>
         </li>
+        <li class="carrito">
+    <a href="carrito.php">
+        <img src="./img/icons/carrito3.svg" alt="Carrito" class="icono-carrito">
+        <span class="contador-carrito"><?php echo $total_items; ?></span>
+    </a>
+</li>
     </ul>
 </nav>
