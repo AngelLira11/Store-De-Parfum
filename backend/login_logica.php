@@ -18,16 +18,21 @@ if($resultado->num_rows > 0) {
         $_SESSION['usr_id'] = $usuario['usr_id'];
         $_SESSION['usr_nombre'] = $usuario['usr_nombre'];
         $_SESSION['usr_email'] = $usuario['usr_email'];
+        $_SESSION['usr_telefono'] = $usuario['usr_telefono'];
         $_SESSION['is_admin'] = ($usuario['usr_rol'] === 'admin') ? true : false; // Establecer rol de administrador si aplica
-        echo "Inicio de sesión exit oso";
+        $_SESSION['mensaje_exito'] = "Inicio de sesión exitoso";
         header("Location: ../frontend/index.php");
         exit();
     } else {
-        echo "Correo o contraseña incorrectos";
+        $_SESSION['mensaje_error'] = "Correo o contraseña incorrectos";
+        header("Location: ../frontend/login.php");
+        exit();
     }
 
 } else {
-    echo "Correo o contraseña incorrectos";
+    $_SESSION['mensaje_error'] = "Correo o contraseña incorrectos";
+    header("Location: ../frontend/login.php");
+    exit();
 }
 
 $stmt->close();

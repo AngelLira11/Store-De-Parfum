@@ -25,4 +25,3 @@ if (isset($_GET['eliminar'])) {
     header("Location: carrito.php");
     exit();
 }
-?>

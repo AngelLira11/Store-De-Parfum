@@ -20,11 +20,20 @@ session_start();
                 <h1>Inicio de Sesión</h1>
             </div>
         </section>
+        
+    <?php if(isset($_SESSION['mensaje_error'])): ?>
+        <div class="mensaje-error">
+            <?php 
+                echo $_SESSION['mensaje_error']; 
+                unset($_SESSION['mensaje_error']); // Eliminar el mensaje después de mostrarlo
+            ?>
+        </div>
+    <?php endif; ?>        
 
         <div class="container">
             <div class="form-container">
                 <h2 class="form-titulo">Iniciar Sesión</h2>
-                <form action="../backend/login.php" method="POST">
+                <form action="../backend/login_logica.php" method="POST">
                     <div class="form-group">
                         <label for="email">Correo Electrónico:</label>
                         <input type="email" id="email" name="email" placeholder="juanperez@ejemplo.com" required>
