@@ -33,7 +33,7 @@ if(isset($_GET['logout']) && $_GET['logout'] == 'true') {
             <ul class="submenu">
 <?php
 if(isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true) {
-    echo '<li><a href="admin_panel.php">Panel de Administración</a></li>';
+    echo '<li><a href="panel_admin.php">Panel de Administración</a></li>';
     echo '<li><a href="perfil.php">Perfil</a></li>';
     echo '<li><a href="logout.php">Cerrar Sesión</a></li>';
 } elseif(isset($_SESSION['usr_id'])) {

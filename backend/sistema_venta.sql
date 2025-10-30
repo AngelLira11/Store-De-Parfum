@@ -20,6 +20,7 @@ CREATE TABLE clientes (
     FOREIGN KEY (cli_usr_id) REFERENCES usuarios(usr_id)
 );
 
+-- Nota : Añadir como clave foranea el producto cuando se cree la tabla de productos
 CREATE TABLE ventas (
     ven_id INT AUTO_INCREMENT PRIMARY KEY,
     ven_cli_id INT NOT NULL,
