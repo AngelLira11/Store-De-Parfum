@@ -1,6 +1,11 @@
 <?php
 session_start();
 include '../backend/conexion_mysql.php'; 
+if ($_SESSION['is_admin'] !== true) {
+    // Si no ha iniciado sesión o no es admin, redirigir a la página principal.
+    header("Location: index.php");
+    exit(); // Es importante detener la ejecución del script después de redirigir.
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -22,7 +27,6 @@ include '../backend/conexion_mysql.php';
         </div>
         <ul class="nav-links">
             <li><a href="panel_admin.php">Volver al Panel</a></li>
-            <li><a href="backend/logout.php" class="logout-btn">Cerrar Sesión</a></li>
         </ul>
     </nav>
 </header>

@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+if ($_SESSION['is_admin'] !== true) {
+    // Si no ha iniciado sesión o no es admin, redirigir a la página principal.
+    header("Location: index.php");
+    exit(); // Es importante detener la ejecución del script después de redirigir.
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">

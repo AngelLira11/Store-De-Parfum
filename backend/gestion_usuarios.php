@@ -25,7 +25,6 @@ $result = $conn->query($query);
         </div>
         <ul class="nav-links">
             <li><a href="panel_admin.php">Panel Admin</a></li>
-            <li><a href="backend/logout.php" class="logout-btn">Cerrar Sesión</a></li>
         </ul>
     </nav>
 </header>

@@ -2,6 +2,12 @@
 session_start();
 require '../backend/conexion_mysql.php';
 
+if ($_SESSION['is_admin'] !== true) {
+    // Si no ha iniciado sesión o no es admin, redirigir a la página principal.
+    header("Location: index.php");
+    exit(); // Es importante detener la ejecución del script después de redirigir.
+}
+
 // Obtener el ID del usuario de la URL
 $id = $_GET['id'];
 if (filter_var($id, FILTER_VALIDATE_INT) === false) {
