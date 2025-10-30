@@ -38,10 +38,13 @@ session_start();
             <!--fila 1-->
             <div class="fila">
 
-               <div class="item">
+               <div  class="item">
                     <div class="contenedor_foto">
-                    <img src="img/perfumes/jpgelixir.jpg" alt="">
+                    <a href="plantilla_producto.php">
+                         <img src="img/perfumes/jpgelixir.jpg" alt="">
                     <p class="descripcion">JPG Elixir</p>
+
+                    </a>
                     </div>
                </div>
 

@@ -38,9 +38,9 @@ CREATE TABLE productos(
     precio_product DECIMAL (10,2) not null,
     stock_product int not null,
     categoria int not null,
-    estado ENUM('disponible', 'agotado', 'descontinuado') DEFAULT 'disponible'
-
-
+    descripcion varchar(255) not null,
+    estado ENUM('disponible', 'agotado', 'descontinuado') DEFAULT 'disponible',
+    img_product VARCHAR(255) NOT NULL
 );
 
 --tabla ventas - productos
