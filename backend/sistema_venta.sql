@@ -27,6 +27,36 @@ CREATE TABLE ventas (
     ven_fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     ven_total DECIMAL(10, 2) NOT NULL,
     FOREIGN KEY (ven_cli_id) REFERENCES clientes(cli_id)
+    FOREIGN key ()
 );
 
 -- Añadir la tabla de productos
+
+CREATE TABLE productos(
+    product_id INT AUTO_INCREMENT PRIMARY KEY,
+    nomb_product varchar (100) not null,
+    precio_product DECIMAL (10,2) not null,
+    stock_product int not null,
+    categoria int not null,
+    estado ENUM('disponible', 'agotado', 'descontinuado') DEFAULT 'disponible'
+
+
+);
+
+--tabla ventas - productos
+
+CREATE TABLE detalle_venta (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    ven_id INT NOT NULL,
+    product_id INT NOT NULL,
+    cantidad INT NOT NULL,
+    subtotal DECIMAL(10,2) NOT NULL,
+
+    FOREIGN KEY (ven_id) REFERENCES ventas(ven_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+
+    FOREIGN KEY (product_id) REFERENCES productos(product_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
