@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f4f4f4;
+}
+
+:root {
+	--color-50: #ECF0F8;
+	--color-100: #CAD4EC;
+	--color-200: #A8B8E1;
+	--color-300: #869CD5;
+	--color-400: #6481C9;
+	--color-500: #4265BD;
+	--color-600: #36539B;
+	--color-700: #2A4179;
+	--color-800: #1E2E57;
+	--color-900: #0F172B;
+	--color-950: #070A13;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+    background-color: var(--color-200);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.section{
+    display: flex;
+    width: 50%;
+    height: auto;
+    justify-content: center;
+      margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.img_1{
+    width: 500px;
+    height: auto;
+}
+
+.aside{
+    display: block;
+    width: 50%;
+    height: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.nom_product{
+    width: 100%;
+    height: auto;
+    text-align: center;
+    font-family: 'italic', sans-serif; 
+    color: #f4f4f4;
+    border: 2px solid var(--color-950);
+}
+
+
+
+.precio{
+    margin-top: 20px;
+    color: red;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
+
+        border: 2px solid var(--color-950);
+
+}
+
+.seleccion{
+        border: 2px solid var(--color-950);
+
+    width: 100%;
+    height: 270px;
+}
+
+.descripcion{
+    margin-top: 10px;
+    color: gray;
+    font-size: 20px;
+}
+
+.descripcion p {
+    font-size: 15px;
+}
+
+
+
+/* Contenedor principal y etiqueta de cantidad */
+.cantidad-control{
+    margin-top: 20px;
+}
+
+.cantidad-control p {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: var(--color-800);
+}
+
+/* Grupo que alinea los botones y el input */
+.input-group {
+    display: flex;
+    align-items: center;
+    width: 180px; /* Ajusta el ancho total */
+}
+
+/* Estilo para los botones */
+.btn-cantidad {
+    /* Dar forma cuadrada */
+    height: 50px;
+    width: 50px;
+    
+    /* Diseño */
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--color-900);
+    transition: background-color 0.2s;
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.btn-cantidad:hover {
+    background-color: #e0e0e0;
+}
+
+/* Estilo para el campo de cantidad */
+#input-cantidad {
+    /* Dar forma cuadrada */
+    height: 50px;
+    width: 60px; /* Un poco más ancho para el número */
+    
+    /* Diseño */
+    text-align: center;
+    border: 1px solid #ccc;
+    color: var(--color-900);
+    font-size: 1.2em;
+    font-weight: 500;
+    margin: 0 5px; /* Espacio entre el input y los botones */
+    border-radius: 5px;
+    /* Eliminar el borde feo que aparece al hacer click */
+    outline: none; 
+}
+

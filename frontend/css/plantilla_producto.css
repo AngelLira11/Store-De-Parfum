@@ -37,7 +37,6 @@ body {
     display: flex;
     width: 50%;
     height: auto;
-    background-color: red;
     justify-content: center;
 }
 

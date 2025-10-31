@@ -35,6 +35,61 @@ $producto = $result->fetch_assoc();
 
 // Cierra la declaración
 $stmt->close();
+
+
+// --- Código de consulta del producto (ya existente) ---
+if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+    die("Error: ID de producto no especificado o inválido.");
+}
+$id_producto = $_GET['id'];
+// ... (código de consulta segura para obtener $producto) ...
+
+// Obtener el stock máximo del producto
+$stock_maximo = (int)$producto['stock_product'];
+
+// ----------------------------------------------------
+// 1. MANEJO DE LA CANTIDAD EN LA SESIÓN
+// ----------------------------------------------------
+
+// Usaremos la sesión para guardar la cantidad seleccionada para este producto
+$sesion_key = 'cantidad_' . $id_producto;
+
+// Inicializar la cantidad si no existe
+if (!isset($_SESSION[$sesion_key])) {
+    $_SESSION[$sesion_key] = 1;
+}
+
+// 2. PROCESAR ENVÍO DEL FORMULARIO (Si se presiona '+' o '-')
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
+    $cantidad_actual = (int)$_SESSION[$sesion_key];
+    $nueva_cantidad = $cantidad_actual;
+    
+    if ($_POST['action'] === 'sumar') {
+        $nueva_cantidad = $cantidad_actual + 1;
+        // Límite superior: stock máximo
+        if ($nueva_cantidad > $stock_maximo) {
+            $nueva_cantidad = $stock_maximo;
+            // Opcional: mostrar un mensaje de error o aviso.
+        }
+    } elseif ($_POST['action'] === 'restar') {
+        $nueva_cantidad = $cantidad_actual - 1;
+        // Límite inferior: 1
+        if ($nueva_cantidad < 1) {
+            $nueva_cantidad = 1;
+        }
+    }
+
+    $_SESSION[$sesion_key] = $nueva_cantidad;
+    
+    // **Importante:** Redirigir para evitar reenvío del formulario (Post/Redirect/Get pattern)
+    header("Location: plantilla_producto.php?id=" . $id_producto);
+    exit();
+}
+
+// Obtener la cantidad final para mostrar
+$cantidad_a_mostrar = $_SESSION[$sesion_key];
+
+
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +97,7 @@ $stmt->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/plantilla_producto.css">
+    <link rel="stylesheet" href="css/productos_unique.css">
     <title><?php echo htmlspecialchars($producto['nomb_product']); ?> - Tienda</title> 
 </head>
 <body>
@@ -60,12 +115,16 @@ $stmt->close();
 
             <div class="nom_product">
                 <h1><?php echo htmlspecialchars($producto['nomb_product']); ?></h1>
+                <hr>
             </div>
+
+          
             
             <div class="precio">
-                <p>Precio: $<?php echo htmlspecialchars($producto['precio_product']); ?></p>
+                <p>$<?php echo htmlspecialchars($producto['precio_product']); ?></p>
             </div>
             
+            <!--
             <div class="stock">
                 <p>Disponibilidad: 
                     <?php 
@@ -77,9 +136,31 @@ $stmt->close();
                     ?>
                 </p>
             </div>
+                -->
+            <div class="parrafo">
+                <img src="img/icons/" alt="">
+            </div>
 
+                <div class="cantidad-control">
+    <p>Cantidad:</p>
+    <div class="input-group">
+        
+        <form method="POST" style="display:inline;">
+            <input type="hidden" name="action" value="restar">
+            <button type="submit" class="btn-cantidad">-</button>
+        </form>
+        
+        <input type="text" id="input-cantidad" value="<?php echo htmlspecialchars($cantidad_a_mostrar); ?>" readonly>
+        
+        <form method="POST" style="display:inline;">
+            <input type="hidden" name="action" value="sumar">
+            <button type="submit" class="btn-cantidad">+</button>
+        </form>
+    </div>
+</div>
             <div class="descripcion">
                 <h2>Descripción</h2>
+                <br>
                 <p><?php echo nl2br(htmlspecialchars($producto['descripcion'])); ?></p>
             </div>
 
