@@ -53,4 +53,9 @@ body {
     background-color: blue;
 }
 
+.nom_product{
+    
+    display: block;
+    width: 100%;
+}
 
