@@ -139,6 +139,7 @@ $cantidad_a_mostrar = $_SESSION[$sesion_key];
                 -->
             <div class="parrafo">
                 <img src="img/icons/camion.png" alt="">
+                <p>Envios Gratis a todo el pais</p>
             </div>
 
                 <div class="cantidad-control">
@@ -163,10 +164,17 @@ $cantidad_a_mostrar = $_SESSION[$sesion_key];
                 <br>
                 <p><?php echo nl2br(htmlspecialchars($producto['descripcion'])); ?></p>
             </div>
+            
+            <!--boton para comprar-->
+            
+			<button class="btn-productos">Agregar al carrito</button>
+		    
 
             </div>
 
     </div>
+
+   
     
 </body>
 </html>

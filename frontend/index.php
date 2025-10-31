@@ -76,7 +76,7 @@ Ofrecer una amplia gama de perfumes y productos relacionados que satisfagan las 
 					</figure>
 				</article>
 
-		<a href="catalogo.html">
+		<a href="catalogo.php">
 			<button class="btn-productos">Todos los productos</button>
 		</a>			
 		</div>

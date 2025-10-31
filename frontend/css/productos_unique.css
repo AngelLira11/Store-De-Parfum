@@ -62,7 +62,6 @@ body {
     text-align: center;
     font-family: 'italic', sans-serif; 
     color: #f4f4f4;
-    border: 2px solid var(--color-950);
 }
 
 
@@ -73,7 +72,6 @@ body {
     font-family:Georgia, 'Times New Roman', Times, serif;
 
 
-        border: 2px solid var(--color-950);
 
 }
 
@@ -85,11 +83,15 @@ body {
 }
 
 .descripcion{
-    margin-top: 10px;
+    margin-top: 20px;
     color: gray;
     font-size: 20px;
 }
 
+
+.descripcion h2{
+    color: rgb(51, 51, 51);
+}
 .descripcion p {
     font-size: 15px;
 }
@@ -155,8 +157,39 @@ body {
     outline: none; 
 }
 
+.parrafo{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+
+}
 
 .parrafo img{
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: auto;
+}
+
+.parrafo p{
+    margin-left: 10px;
+    font-size: 20px;
+    color: rgb(51, 51, 51);
+}
+
+
+.btn-productos {
+    margin-top: 30px;
+    align-items: center;
+	background-color: var(--color-300);
+	color: #fff;
+	padding: 7px 20px;
+	text-transform: uppercase;
+	font-size: 16px;
+	border: 2px solid transparent;
+	transition: .3s ease;
+}
+
+.btn-productos:hover {
+	background-color: transparent;
+	border: 2px solid var(--color-700);
+	color: var(--purple-light);
 }
