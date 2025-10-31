@@ -90,6 +90,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 $cantidad_a_mostrar = $_SESSION[$sesion_key];
 
 
+//carrito de compras
+// --- 4. PROCESAR EL BOTÓN 'AGREGAR AL CARRITO' ---
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action_carrito']) && $_POST['action_carrito'] === 'agregar') {
+    
+    // Obtener la cantidad FINAL del contador que está en la sesión
+    $cantidad_a_agregar = (int)$_SESSION[$sesion_key]; 
+
+    // Inicializar el carrito principal si no existe
+    if (!isset($_SESSION['carrito'])) {
+        $_SESSION['carrito'] = [];
+    }
+
+    // Agregar o Actualizar el producto en el carrito (suma si ya existe)
+    if (isset($_SESSION['carrito'][$id_producto])) {
+        $_SESSION['carrito'][$id_producto] += $cantidad_a_agregar;
+    } else {
+        $_SESSION['carrito'][$id_producto] = $cantidad_a_agregar;
+    }
+    
+    // Opcional: Borrar la cantidad temporal del contador después de agregarlo
+    unset($_SESSION[$sesion_key]); 
+
+    // Redirigir al usuario a la página del carrito
+    header("Location: carrito.php"); 
+    exit();
+}
+
+// 5. Obtener la cantidad final para mostrar en el input
+$cantidad_a_mostrar = isset($_SESSION[$sesion_key]) ? (int)$_SESSION[$sesion_key] : 1; 
+
+// Obtener detalles del producto para el HTML (puedes ajustar el precio si quieres el formato con superíndice)
+$nomb_product = htmlspecialchars($producto['nomb_product']);
+$precio_product = number_format((float)$producto['precio_product'], 2, '.', ',');
+$descripcion = htmlspecialchars($producto['descripcion']);
+$img_product = htmlspecialchars($producto['img_product']);
+
 ?>
 
 <!DOCTYPE html>
@@ -166,8 +202,13 @@ $cantidad_a_mostrar = $_SESSION[$sesion_key];
             </div>
             
             <!--boton para comprar-->
+           <div class="butt">
+             <form method="POST">
+                <input type="hidden" name="action_carrito" value="agregar">
+                <button type="submit" class="btn-agregar-carrito" style="padding: 10px 20px; background-color: #6a6a9b; color: white; border: none; cursor: pointer;">AGREGAR AL CARRITO</button>
+            </form>
+           </div>
             
-			<button class="btn-productos">Agregar al carrito</button>
 		    
 
             </div>
