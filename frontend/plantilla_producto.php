@@ -138,7 +138,7 @@ $cantidad_a_mostrar = $_SESSION[$sesion_key];
             </div>
                 -->
             <div class="parrafo">
-                <img src="img/icons/" alt="">
+                <img src="img/icons/camion.png" alt="">
             </div>
 
                 <div class="cantidad-control">
