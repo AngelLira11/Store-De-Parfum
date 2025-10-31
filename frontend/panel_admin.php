@@ -45,7 +45,7 @@ if ($_SESSION['is_admin'] !== true) {
         </a>
 
         <!-- Lira aqui este boton no hace nada, para que tu le anadas -->
-        <a href="#" class="admin-card card-productos">
+        <a href="modificar_productos.php" class="admin-card card-productos">
             <div class="icon">📦</div>
             <h3>Gestión de Productos</h3>
             <p>Alta, baja y modificación del inventario</p>
