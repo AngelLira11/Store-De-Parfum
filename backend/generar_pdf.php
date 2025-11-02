@@ -5,7 +5,7 @@ session_start();
 // require '../vendor/autoload.php';
 
 // OPCIÓN 2: Si descargaste FPDF manualmente
-require '../fpdf/fpdf.php';
+require '../fpdf186/fpdf.php';
 
 require 'conexion_mysql.php';
 
