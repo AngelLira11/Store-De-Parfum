@@ -37,7 +37,7 @@ $pdf->Cell(0, 15, '', 0, 1);
 $pdf->Cell(0, 10, 'COMPROBANTE DE COMPRA', 0, 1, 'C');
 
 $pdf->SetFont('Arial', 'I', 10);
-$pdf->Cell(0, 5, 'Tu Tienda Online', 0, 1, 'C');
+$pdf->Cell(0, 5, 'Store De Parfum', 0, 1, 'C');
 
 $pdf->Ln(10);
 
