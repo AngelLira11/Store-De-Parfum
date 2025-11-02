@@ -1,6 +1,5 @@
 <?php
 session_start();
-// **ATENCIÓN: AJUSTA ESTA RUTA SI ES NECESARIO**
 require '../backend/conexion_mysql.php'; 
 
 $productos_en_carrito = [];
@@ -12,7 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminar_id'])) {
     if ($id_a_eliminar !== false && isset($_SESSION['carrito'][$id_a_eliminar])) {
         unset($_SESSION['carrito'][$id_a_eliminar]);
     }
-    // Redirigir para limpiar el POST y reflejar el cambio
     header("Location: carrito.php");
     exit();
 }
@@ -23,11 +21,9 @@ if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
     $productos_ids = array_keys($_SESSION['carrito']);
     $ids_string = implode(',', array_map('intval', $productos_ids));
     
-    // Consulta la base de datos para obtener los detalles
     $query = "SELECT product_id, nomb_product, precio_product, img_product FROM productos WHERE product_id IN ({$ids_string})";
     $result = $conn->query($query);
     
-    // Procesar resultados y calcular subtotales
     while ($producto = $result->fetch_assoc()) {
         $id = $producto['product_id'];
         $cantidad = $_SESSION['carrito'][$id];
@@ -117,7 +113,6 @@ if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
             
         <?php endif; ?>
 
-        <!-- Mensaje de resultado -->
         <p id="result-message"></p>
     </div>
 
@@ -146,20 +141,59 @@ if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
             },
             onApprove: function (data, actions) {
                 return actions.order.capture().then(function (details) {
-                    console.log("Pago exitoso:", details);
+                    console.log("Detalles completos de PayPal:", details);
+                    
                     if (details.status === "COMPLETED") {
-                        window.location.href = "compra_completada.php";
+                        // Preparar datos para enviar al servidor
+                        const paypalData = {
+                            transaction_id: details.id,
+                            status: details.status,
+                            payer_id: details.payer.payer_id,
+                            payer_name: details.payer.name.given_name + ' ' + details.payer.name.surname,
+                            payer_email: details.payer.email_address,
+                            amount: details.purchase_units[0].amount.value,
+                            currency: details.purchase_units[0].amount.currency_code,
+                            create_time: details.create_time,
+                            update_time: details.update_time
+                        };
+                        
+                        // Enviar datos al servidor mediante fetch
+                        fetch('../backend/procesar_compra.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(paypalData)
+                        })
+                        .then(response => response.json())
+                        .then(result => {
+                            if (result.success) {
+                                window.location.href = "compra_completada.php";
+                            } else {
+                                alert("Error al procesar la compra: " + result.message);
+                            }
+                        })
+                        .catch(error => {
+                            console.error("Error:", error);
+                            alert("Error al procesar la compra");
+                        });
+                        
                     } else {
                         alert("El pago no se completó correctamente.");
                         console.log(details);
                     }
                 }).catch(function(error) {
                     console.error("Error al capturar el pago:", error);
+                    alert("Error al procesar el pago");
                 });
             },
             onCancel: function (data) {
                 alert("Pago cancelado");
                 console.log(data);
+            },
+            onError: function(err) {
+                console.error("Error en PayPal:", err);
+                alert("Ocurrió un error con PayPal. Por favor intenta nuevamente.");
             }
         }).render("#paypal-button-container");
     </script>
