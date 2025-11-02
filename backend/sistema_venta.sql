@@ -27,7 +27,6 @@ CREATE TABLE ventas (
     ven_fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     ven_total DECIMAL(10, 2) NOT NULL,
     FOREIGN KEY (ven_cli_id) REFERENCES clientes(cli_id)
-    FOREIGN key ()
 );
 
 -- Añadir la tabla de productos

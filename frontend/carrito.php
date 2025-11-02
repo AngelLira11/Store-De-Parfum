@@ -17,7 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminar_id'])) {
     exit();
 }
 
-
 // --- 2. MOSTRAR EL CONTENIDO DEL CARRITO ---
 if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
     
@@ -52,24 +51,21 @@ if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tu Carrito de Compras</title>
-    <style>
-        .carrito-container { width: 90%; max-width: 1000px; margin: 50px auto; }
-        .carrito-tabla { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        .carrito-tabla th, .carrito-tabla td { border: 1px solid #ddd; padding: 15px; text-align: left; vertical-align: middle; }
-        .producto-imagen { width: 80px; height: auto; display: block; }
-        .total-fila { font-weight: bold; background-color: #f9f9f9; }
-    </style>
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-        <?php include("../backend/header.php"); ?>
+    <?php include("../backend/header.php"); ?>
 
-    
     <div class="carrito-container">
-        <h1>Tu Carrito</h1>
+        <h1 class="carrito-titulo">Tu Carrito</h1>
         
         <?php if (empty($productos_en_carrito)): ?>
-            <p>Tu carrito está vacío. <a href="catalogo.php">¡Empieza a comprar!</a></p>
+            <p class="carrito-vacio">
+                Tu carrito está vacío. 
+                <a href="catalogo.php" class="link-seguir-comprando">¡Empieza a comprar!</a>
+            </p>
         <?php else: ?>
             
             <table class="carrito-tabla">
@@ -86,17 +82,20 @@ if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
                     <?php foreach ($productos_en_carrito as $item): ?>
                     <tr>
                         <td>
-                            <img src="<?php echo $item['imagen']; ?>" alt="<?php echo $item['nombre']; ?>" class="producto-imagen">
-                            <?php echo $item['nombre']; ?>
+                            <div class="producto-info">
+                                <img src="<?php echo $item['imagen']; ?>" 
+                                     alt="<?php echo $item['nombre']; ?>" 
+                                     class="producto-imagen">
+                                <span class="producto-nombre"><?php echo $item['nombre']; ?></span>
+                            </div>
                         </td>
-                        <td>$<?php echo number_format($item['precio'], 2, '.', ','); ?></td>
-                        <td><?php echo $item['cantidad']; ?></td>
-                        <td>$<?php echo number_format($item['subtotal'], 2, '.', ','); ?></td>
-                        
-                        <td>
-                            <form method="POST" style="display:inline;">
+                        <td class="precio-cell">$<?php echo number_format($item['precio'], 2, '.', ','); ?></td>
+                        <td class="cantidad-cell"><?php echo $item['cantidad']; ?></td>
+                        <td class="subtotal-cell">$<?php echo number_format($item['subtotal'], 2, '.', ','); ?></td>
+                        <td class="acciones-cell">
+                            <form method="POST" class="form-eliminar">
                                 <input type="hidden" name="eliminar_id" value="<?php echo $item['id']; ?>">
-                                <button type="submit" style="color: red; border: none; background: none; cursor: pointer; font-size: 1.2em;">X</button>
+                                <button type="submit" class="btn-eliminar" title="Eliminar producto">X</button>
                             </form>
                         </td>
                     </tr>
@@ -105,19 +104,64 @@ if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
                 <tfoot>
                     <tr class="total-fila">
                         <td colspan="3">Total General:</td>
-                        <td>$<?php echo number_format($total_general, 2, '.', ','); ?></td>
+                        <td class="total-precio">$<?php echo number_format($total_general, 2, '.', ','); ?></td>
                         <td></td>
                     </tr>
                 </tfoot>
             </table>
             
-            <div style="text-align: right; margin-top: 20px;">
-                <a href="catalogo.php" style="margin-right: 15px; text-decoration: none;">Seguir Comprando</a>
-                <button style="padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer;">Finalizar Compra</button>
+            <div class="carrito-acciones">
+                <a href="catalogo.php" class="btn-seguir-comprando">Seguir Comprando</a>
+                <div id="paypal-button-container"></div>
             </div>
             
         <?php endif; ?>
+
+        <!-- Mensaje de resultado -->
+        <p id="result-message"></p>
     </div>
+
+    <!-- Integración de PAYPAL -->
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=AZ9YLo6S1FGFLg41ofSsIkyfG3UN2j6ezBPg5kzusyr4c3D9TiZKGQtUiBJuIBPnl8CVuyO_NKP1mrWO&buyer-country=MX&currency=MXN&components=buttons&enable-funding=card&disable-funding=venmo,paylater"
+        data-sdk-integration-source="developer-studio">
+    </script>
     
+    <script>
+        paypal.Buttons({
+            style: {
+                shape: "pill",
+                layout: "vertical",
+                color: "blue",
+                label: "pay"
+            },
+            createOrder: function (data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '<?php echo $total_general; ?>'
+                        }
+                    }]
+                });
+            },
+            onApprove: function (data, actions) {
+                return actions.order.capture().then(function (details) {
+                    console.log("Pago exitoso:", details);
+                    if (details.status === "COMPLETED") {
+                        window.location.href = "compra_completada.php";
+                    } else {
+                        alert("El pago no se completó correctamente.");
+                        console.log(details);
+                    }
+                }).catch(function(error) {
+                    console.error("Error al capturar el pago:", error);
+                });
+            },
+            onCancel: function (data) {
+                alert("Pago cancelado");
+                console.log(data);
+            }
+        }).render("#paypal-button-container");
+    </script>
 </body>
 </html>
