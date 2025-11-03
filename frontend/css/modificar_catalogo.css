@@ -1,69 +1,256 @@
-        body { font-family: sans-serif; 
-            padding: 20px;
-             background-color:
-              #f4f4f4; 
-            }
+/* ============================================== */
+/* ✨ Estilos Base y Fondo de Página              */
+/* ============================================== */
+body { 
+    font-family: sans-serif; 
+    margin: 0;
+    padding: 0;
+    background-color: #6A66BE;
+}
 
-        .container { max-width: 900px;
-             margin: 0 auto;
-              background: white; 
-              padding: 20px;
-               box-shadow: 0 0 10px rgba(0,0,0,0.1); 
-            
-        }
+/* ============================================== */
+/* ✨ Contenedor Principal del Contenido           */
+/* ============================================== */
+.container { 
+    max-width: 900px;
+    margin: 40px auto;
+    background: white; 
+    padding: 20px 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15); 
+    border-radius: 8px;
+}
 
-        h1 { border-bottom: 2px solid #ccc; 
-            padding-bottom: 10px; 
-        }
+h1 { 
+    border-bottom: 2px solid #eee; 
+    padding-bottom: 10px; 
+}
 
-        .formulario { border: 1px solid #ccc;
-             padding: 20px; 
-             margin-bottom: 20px; 
-             background: #fafafa;
-             }
+/* ============================================== */
+/* ✨ Formularios y Entradas                       */
+/* ============================================== */
+.formulario { 
+    border: 1px solid #e9e9e9;
+    border-radius: 5px;
+    padding: 20px; 
+    margin-bottom: 20px; 
+    background: #fafafa;
+}
 
-        .formulario label { display: block;
-             margin-top: 10px; 
-             font-weight: bold; 
-            
-            }
+.formulario label { 
+    display: block;
+    margin-top: 12px; 
+    margin-bottom: 4px;
+    font-weight: bold; 
+    color: #444;
+}
 
+.formulario input[type="text"], 
+.formulario input[type="number"], 
+.formulario textarea,
+.formulario select { 
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
 
-        .formulario input[type="text"], 
-        .formulario input[type="number"], 
-        .formulario textarea { width: 100%;
-             padding: 8px;
-              margin-top: 5px;
-               border: 1px solid #ddd;
-                box-sizing: border-box;
-             
-            }
+/* Regla :focus combinada para limpieza */
+.formulario input:focus, 
+.formulario textarea:focus, 
+.formulario select:focus {
+    border-color: #6A66BE;
+    outline: none;
+}
 
-        .formulario button { padding: 10px 15px;
-             background: #6a6a9b;
-              color: white;
-               border: none; 
-               cursor: pointer;
-                margin-top: 15px;
-             }
+.formulario button { 
+    padding: 12px 20px;
+    background: #6a6a9b;
+    color: white;
+    border: none; 
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
 
-        .mensaje { padding: 10px;
-             margin-bottom: 15px;
-              border-radius: 4px;
-            }
+.formulario button:hover {
+    background-color: #555580;
+}
 
-        .mensaje.success { background-color: #d4edda;
-             color: #155724; 
-             border: 1px solid #c3e6cb; 
-            }
+/* ============================================== */
+/* ✨ Mensajes de Alerta (Success/Error)          */
+/* ============================================== */
+.mensaje { 
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 4px;
+    text-align: center;
+}
 
-        .mensaje.error { background-color: #f8d7da; 
-            color: #721c24; 
-            border: 1px solid #f5c6cb;
-         }
+.mensaje.success { 
+    background-color: #d4edda;
+    color: #155724; 
+    border: 1px solid #c3e6cb; 
+}
 
-        .listado-productos { margin-top: 20px;
-             border: 1px solid #ccc;
-              padding: 15px;
-             }
-             
+.mensaje.error { 
+    background-color: #f8d7da; 
+    color: #721c24; 
+    border: 1px solid #f5c6cb;
+}
+
+/* ============================================== */
+/* ✨ Listado de Productos en Inventario           */
+/* ============================================== */
+.listado-productos { 
+    margin-top: 20px;
+    border: 1px solid #eee;
+    background-color: #fdfdfd;
+    padding: 15px;
+    border-radius: 5px;
+}
+.listado-productos ul {
+    padding-left: 20px;
+}
+.listado-productos li {
+    padding: 4px 0;
+    color: #333;
+}
+         
+/* ============================================== */
+/* ✨ Barra de Navegación de Administración       */
+/* ============================================== */
+.admin-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.admin-nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    z-index: -1;
+}
+
+.admin-nav .logo {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.admin-nav .logo img {
+    height: 60px;
+    width: auto;
+}
+
+.admin-nav .logo h1 {
+    font-size: 1.8rem;
+    color: #1E2E57;
+    margin: 0;
+    font-weight: 700;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: #2A4179;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.7rem 1.3rem;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-links a:hover {
+    color: #4265BD;
+    background-color: #ECF0F8;
+}
+
+/* ============================================== */
+/* ✨ Footer (NUEVO Y MEJORADO)                    */
+/* ============================================== */
+footer {
+    padding: 2rem 1rem; /* Más espacio vertical */
+    background-color: #1E2E57; /* <-- El color azul oscuro que pediste */
+    margin-top: 40px; /* Espacio para separarlo del contenido */
+}
+
+.redes-container {
+    text-align: center;
+}
+
+.redes-container img {
+    width: 45px; /* Un tamaño base ligeramente más pequeño */
+    height: 45px;
+    margin: 0 10px; /* Espacio entre iconos */
+    transition: transform 0.3s ease;
+}
+
+.redes-container img:hover {
+    transform: scale(1.15); /* Efecto hover un poco más sutil */
+}
+/* ============================================== */
+/* ✨ Diseño Responsivo para Móviles y Tablets    */
+/* ============================================== */
+
+@media (max-width: 768px) {
+    .admin-nav {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0;
+        padding: 0.5rem 1rem;
+    }
+
+    .admin-nav .logo img {
+        height: 45px;
+    }
+
+    /* 👇 ESTA ES LA REGLA CORREGIDA Y DEFINITIVA 👇 */
+    .admin-nav .logo h1 {
+        display: none !important; /* <--- SE AÑADIÓ !important */
+    }
+
+    .container {
+        margin: 20px 10px;
+        padding: 15px;
+    }
+
+    footer {
+        padding: 1.5rem 1rem;
+    }
+    
+    .redes-container img {
+        width: 40px;
+        height: 40px;
+        margin: 0 8px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .titulo-responsive {
+        display: none !important;
+    }
+}
+

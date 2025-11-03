@@ -109,10 +109,17 @@ try {
         $stmt_detalle->bind_param("iiid", $ven_id, $producto['id'], $producto['cantidad'], $producto['subtotal']);
         $stmt_detalle->execute();
         
-        // Actualizar stock
-        $update_stock = "UPDATE productos SET stock_product = stock_product - ? WHERE product_id = ?";
+        // Actualizar stock y estado si es necesario
+        $update_stock = "
+            UPDATE productos 
+            SET stock_product = stock_product - ?, estado = CASE 
+            WHEN (stock_product - ?) <= 0 THEN 'agotado' 
+            ELSE estado 
+            END
+            WHERE product_id = ?";
         $stmt_stock = $conn->prepare($update_stock);
-        $stmt_stock->bind_param("ii", $producto['cantidad'], $producto['id']);
+        // Nota: Ahora se pasan 3 parámetros, la cantidad se usa dos veces
+        $stmt_stock->bind_param("iii", $producto['cantidad'], $producto['cantidad'], $producto['id']);
         $stmt_stock->execute();
     }
     

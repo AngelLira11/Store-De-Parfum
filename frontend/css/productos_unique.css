@@ -6,126 +6,156 @@
 
 body {
     background-color: #f4f4f4;
+    font-family: 'Helvetica', Arial, sans-serif;
 }
 
 :root {
-	--color-50: #ECF0F8;
-	--color-100: #CAD4EC;
-	--color-200: #A8B8E1;
-	--color-300: #869CD5;
-	--color-400: #6481C9;
-	--color-500: #4265BD;
-	--color-600: #36539B;
-	--color-700: #2A4179;
-	--color-800: #1E2E57;
-	--color-900: #0F172B;
-	--color-950: #070A13;
+    --color-50: #ECF0F8;
+    --color-100: #CAD4EC;
+    --color-200: #A8B8E1;
+    --color-300: #869CD5;
+    --color-400: #6481C9;
+    --color-500: #4265BD;
+    --color-600: #36539B;
+    --color-700: #2A4179;
+    --color-800: #1E2E57;
+    --color-900: #0F172B;
+    --color-950: #070A13;
 }
+
+/* ============================================== */
+/* LAYOUT PRINCIPAL (ESCRITORIO)                  */
+/* ============================================== */
 
 .container {
     display: flex;
     width: 100%;
-    height: auto;
-    max-width: 100%;
-    margin: 0 auto;
+    max-width: 1200px;
+    margin: 10px auto;
     padding: 0 15px;
     background-color: var(--color-200);
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 
-.section{
+.section {
     display: flex;
     width: 50%;
-    height: auto;
     justify-content: center;
-      margin-top: 20px;
-    margin-bottom: 20px;
+    align-items: center;
+    padding: 20px;
 }
 
-.img_1{
-    width: 500px;
-    height: auto;
-}
-
-.aside{
-    display: block;
-    width: 50%;
-    height: 100px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.nom_product{
+.img_1 {
     width: 100%;
-    height: auto;
+    max-width: 500px;
+    height: auto; /* Se mantiene para responsividad inicial */
+    
+    /* --- ✨ Nuevas reglas para el ajuste perfecto --- */
+    max-height: 600px; /* Límite de altura para imágenes muy altas */
+    object-fit: contain; /* La imagen se ajusta sin deformarse ni cortarse */
+}
+
+.aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    padding: 20px;
+}
+
+/* ============================================== */
+/* ESTILOS DE TEXTO Y ELEMENTOS                   */
+/* ============================================== */
+
+.nom_product {
+    width: 100%;
     text-align: center;
     font-family: 'italic', sans-serif; 
-    color: #f4f4f4;
+    color: var(--color-900);
+    margin-bottom: 20px;
 }
 
-
-
-.precio{
-    margin-top: 20px;
-    color: red;
-    font-family:Georgia, 'Times New Roman', Times, serif;
-
-
-
+/* --- ESTILO PARA LA LÍNEA DIVISORIA DE TÍTULO --- */
+.nom_product hr {
+    border: none;
+    height: 3px;
+    background-color: var(--color-400);
+    width: 100%; /* Ancho completo, igual que el botón */
+    margin: 10px 0 0 0; /* Sin margen automático, solo superior */
+    border-radius: 2px;
 }
 
-.seleccion{
-        border: 2px solid var(--color-950);
-
-    width: 100%;
-    height: 270px;
+.precio {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: var(--color-800);
+    line-height: 1;
 }
 
-.descripcion{
-    margin-top: 20px;
-    color: gray;
-    font-size: 20px;
-    margin-bottom: 50px;
+.stock {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 1.1rem;
+    color: var(--color-700);
 }
 
+.stock span::before {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+}
 
-.descripcion h2{
+.stock span[style*="color: green"]::before { background-color: #28a745; }
+.stock span[style*="color: green"] { color: #28a745 !important; font-weight: 600; }
+.stock span[style*="color: red"]::before { background-color: #dc3545; }
+.stock span[style*="color: red"] { color: #dc3545 !important; font-weight: 600; }
+
+.parrafo {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.parrafo img { width: 30px; height: auto; }
+.parrafo p { margin-left: 10px; font-size: 1.1rem; color: rgb(51, 51, 51); }
+
+.descripcion { margin-top: 20px; margin-bottom: 30px; }
+.descripcion h2 {
     color: rgb(51, 51, 51);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 5px;
 }
-.descripcion p {
-    font-size: 15px;
-}
+.descripcion p { font-size: 1rem; color: var(--color-800); }
 
+/* ============================================== */
+/* CONTROLES DE CANTIDAD Y BOTONES                */
+/* ============================================== */
 
-
-/* Contenedor principal y etiqueta de cantidad */
-.cantidad-control{
-    margin-top: 20px;
+.cantidad-control {
+    margin-top: 30px;
 }
 
 .cantidad-control p {
-    font-size: 1.1em;
-    font-weight: 600;
-    margin-bottom: 10px;
-    font-size: 15px;
-    color: var(--color-800);
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--color-700);
+    margin-bottom: 8px;
 }
 
-/* Grupo que alinea los botones y el input */
-.input-group {
-    display: flex;
-    align-items: center;
-    width: 180px; /* Ajusta el ancho total */
-}
-
-/* Estilo para los botones */
+.input-group { display: flex; align-items: center; width: 180px; }
 .btn-cantidad {
-    /* Dar forma cuadrada */
     height: 50px;
     width: 50px;
-    
-    /* Diseño */
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     cursor: pointer;
@@ -133,64 +163,50 @@ body {
     font-weight: bold;
     color: var(--color-900);
     transition: background-color 0.2s;
-    border-radius: 5px; /* Bordes redondeados */
+    border-radius: 5px;
 }
-
-.btn-cantidad:hover {
-    background-color: #e0e0e0;
-}
-
-/* Estilo para el campo de cantidad */
+.btn-cantidad:hover { background-color: #e0e0e0; }
+.btn-cantidad:disabled { background-color: #e9ecef; cursor: not-allowed; opacity: 0.65; }
 #input-cantidad {
-    /* Dar forma cuadrada */
     height: 50px;
-    width: 60px; /* Un poco más ancho para el número */
-    
-    /* Diseño */
+    width: 60px;
     text-align: center;
     border: 1px solid #ccc;
     color: var(--color-900);
     font-size: 1.2em;
     font-weight: 500;
-    margin: 0 5px; /* Espacio entre el input y los botones */
+    margin: 0 5px;
     border-radius: 5px;
-    /* Eliminar el borde feo que aparece al hacer click */
     outline: none; 
 }
 
-.parrafo{
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-
+.butt { margin-top: 20px; }
+.btn-agregar-carrito {
+    width: 100%;
+    padding: 10px 20px !important;
+    background-color: var(--color-600) !important;
+    color: white !important;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
+.btn-agregar-carrito:hover:not(:disabled) { background-color: var(--color-700) !important; }
+.btn-agregar-carrito:disabled { background-color: #a8b8e1 !important; cursor: not-allowed; }
 
-.parrafo img{
-    width: 30px;
-    height: auto;
-}
+/* ============================================== */
+/* ✨ RESPONSIVE DESIGN (TABLETS & MOBILE) ✨       */
+/* ============================================== */
 
-.parrafo p{
-    margin-left: 10px;
-    font-size: 20px;
-    color: rgb(51, 51, 51);
-}
-
-
-.btn-productos {
-    margin-top: 30px;
-    align-items: center;
-	background-color: var(--color-300);
-	color: #fff;
-	padding: 7px 20px;
-	text-transform: uppercase;
-	font-size: 16px;
-	border: 2px solid transparent;
-	transition: .3s ease;
-}
-
-.btn-productos:hover {
-	background-color: transparent;
-	border: 2px solid var(--color-700);
-	color: var(--purple-light);
+@media (max-width: 768px) {
+    .container { flex-direction: column; padding: 0; }
+    .section, .aside { width: 100%; padding: 20px; }
+    .aside { height: auto; }
+    .nom_product { text-align: center; }
+    .precio { font-size: 2.8rem; }
+    .butt { display: flex; justify-content: center; margin-top: 30px; }
+    .btn-agregar-carrito { width: 100%; font-size: 1.1rem; padding: 15px !important; }
 }

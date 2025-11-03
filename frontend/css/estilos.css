@@ -1646,58 +1646,104 @@ header {
     padding: 0;
 }
 
-.admin-header {
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    padding: 1rem 0;
-}
+/* ============================================== */
+/* ✨ Barra de Navegación de Administración (Definitiva) */
+/* ============================================== */
 
+/* --- La Barra Principal --- */
 .admin-nav {
+    /* Layout y espaciado */
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 1rem 2rem; /* Un poco menos de padding vertical para un look más estilizado */
+
+    /* Fondo de ancho completo (El truco) */
+    position: relative;
+    z-index: 1;
 }
 
+/* (La Magia) Fondo virtual que se extiende por toda la pantalla */
+.admin-nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    z-index: -1;
+}
+
+/* --- Logo y Título --- */
 .admin-nav .logo {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.2rem;
 }
 
+/* (La Clave) Un tamaño claro y controlado */
 .admin-nav .logo img {
-    width: 40px;
-    height: 40px;
+    height: 60px;   /* ✨ Fija una altura clara y definida */
+    width: auto;    /* ✨ Permite que el ancho se ajuste automáticamente para mantener la proporción */
 }
 
 .admin-nav .logo h1 {
-    font-size: 1.5rem;
-    color: #667eea;
+    font-size: 1.8rem; /* Tamaño balanceado con el logo */
+    color: #1E2E57;
     margin: 0;
+    font-weight: 700;
 }
 
+/* --- Enlaces de Navegación --- */
 .nav-links {
-    display: flex;
-    gap: 2rem;
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
 .nav-links a {
-    color: #333;
+    color: #2A4179;
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.3s;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
+    font-size: 1.1rem;
+    padding: 0.7rem 1.3rem;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
 }
 
 .nav-links a:hover {
-    color: #667eea;
-    background: rgba(102, 126, 234, 0.1);
+    color: #4265BD;
+    background-color: #ECF0F8;
+}
+
+/* ============================================== */
+/* ✨ Diseño Responsivo para Móviles y Tablets    */
+/* ============================================== */
+
+@media (max-width: 768px) {
+    .admin-nav {
+        flex-direction: column; /* Apila el logo y el link verticalmente */
+        gap: 1.5rem;          /* Espacio entre el logo y el link */
+        padding: 1rem;        /* Reduce el padding en pantallas pequeñas */
+    }
+
+    /* Reducimos el tamaño del logo en móviles */
+/* Dentro de @media (max-width: 768px) */
+
+/* Reducimos la altura del logo en móviles */
+.admin-nav .logo img {
+    height: 45px;
+}
+
+    /* Ocultamos el título largo en móviles para un look más limpio */
+    .admin-nav .logo h1 {
+        display: none;
+    }
 }
 
 .logout-btn {
@@ -2520,139 +2566,533 @@ tr:hover {
    ESTILOS PARA COMPRA COMPLETADA
    ======================================== */
 
-.compra-exitosa {
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 40px;
+.confirmacion-wrapper {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 60px 20px;
+    margin: 0;
+    position: relative;
+    top: 0;
+}
+
+.confirmacion-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Header de confirmación */
+.confirmacion-header {
+    background: white;
+    border-radius: 20px;
+    padding: 50px 40px;
     text-align: center;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
 }
 
-.compra-exitosa .icono-exito {
-    font-size: 80px;
-    color: #4CAF50;
-    margin-bottom: 20px;
+.check-circle {
+    display: inline-block;
+    margin-bottom: 30px;
+    animation: scaleIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.compra-exitosa h1 {
-    color: #4CAF50;
-    margin-bottom: 15px;
+@keyframes scaleIn {
+    from {
+        transform: scale(0) rotate(-180deg);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
 }
 
-.compra-exitosa .numero-orden {
-    background: #f5f5f5;
-    padding: 15px;
-    border-radius: 5px;
-    margin: 20px 0;
+.confirmacion-header h1 {
+    font-size: 36px;
+    color: #1a1a1a;
+    margin: 0 0 12px 0;
+    font-weight: 700;
+}
+
+.mensaje-exito {
+    color: #666;
     font-size: 18px;
+    margin: 0 0 30px 0;
 }
 
-.compra-exitosa .info-paypal {
-    background: #e8f4fd;
-    border-left: 4px solid #0070ba;
-    padding: 15px;
-    margin: 20px 0;
-    text-align: left;
+.orden-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
 
-.compra-exitosa .info-paypal h4 {
-    color: #0070ba;
-    margin-bottom: 10px;
+/* Contenido principal */
+.confirmacion-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.compra-exitosa .info-paypal p {
-    margin: 5px 0;
-    font-size: 14px;
+/* Cards */
+.info-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
 
-.compra-exitosa .estado-completado {
-    color: #4CAF50;
+.card-header-simple {
+    padding: 24px 30px;
+    background: #fafafa;
+    border-bottom: 2px solid #e0e0e0;
 }
 
-.compra-exitosa .detalle-compra {
-    text-align: left;
-    margin: 30px 0;
-    padding: 20px;
-    background: #f9f9f9;
-    border-radius: 5px;
+.card-header-simple h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #1a1a1a;
+    font-weight: 600;
 }
 
-.compra-exitosa .detalle-compra h3 {
-    margin-bottom: 15px;
-    color: #333;
+.card-body {
+    padding: 30px;
 }
 
-.compra-exitosa .producto-item {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
+/* Productos lista */
+.productos-lista-simple {
+    margin-bottom: 24px;
+}
+
+.producto-item-simple {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid #f0f0f0;
 }
 
-.compra-exitosa .producto-item:last-child {
+.producto-item-simple:last-child {
     border-bottom: none;
 }
 
-.compra-exitosa .total-final {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    margin-top: 20px;
-    padding-top: 15px;
-    border-top: 2px solid #4CAF50;
-}
-
-.compra-exitosa .botones-accion {
-    margin-top: 30px;
+.producto-info-simple {
     display: flex;
-    gap: 15px;
-    justify-content: center;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
 }
 
-.compra-exitosa .btn-compra {
-    padding: 12px 30px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.producto-nombre-simple {
+    color: #1a1a1a;
     font-size: 16px;
+    font-weight: 600;
+}
+
+.producto-cantidad-simple {
+    color: #666;
+    font-size: 15px;
+    background: #f5f5f5;
+    padding: 4px 12px;
+    border-radius: 12px;
+}
+
+.producto-precio-simple {
+    color: #1a1a1a;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+/* Total */
+.total-section-simple {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.total-label {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.total-monto {
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+/* Info de pago */
+.pago-info-simple {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+    padding: 16px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    color: #666;
+    font-size: 15px;
+}
+
+.paypal-icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* Card de cliente */
+.cliente-card .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cliente-nombre {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.cliente-email,
+.cliente-telefono {
+    margin: 0;
+    font-size: 15px;
+    color: #666;
+}
+
+/* Botones de acción */
+.acciones-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 10px;
+}
+
+.btn-accion-large {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 28px 20px;
+    border-radius: 16px;
+    font-size: 16px;
+    font-weight: 600;
     text-decoration: none;
-    display: inline-block;
-    transition: all 0.3s;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.compra-exitosa .btn-pdf {
-    background: #e74c3c;
+.btn-accion-large:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.btn-pdf-large {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
     color: white;
 }
 
-.compra-exitosa .btn-pdf:hover {
-    background: #c0392b;
-}
-
-.compra-exitosa .btn-inicio {
-    background: #3498db;
+.btn-catalogo-large {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
     color: white;
 }
 
-.compra-exitosa .btn-inicio:hover {
-    background: #2980b9;
+/* Mensaje final */
+.mensaje-final {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.mensaje-final p {
+    margin: 0;
+    color: #666;
+    font-size: 15px;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .compra-exitosa {
-        margin: 20px;
+    .confirmacion-wrapper {
+        padding: 30px 15px;
+    }
+    
+    .confirmacion-header {
+        padding: 40px 25px;
+    }
+    
+    .confirmacion-header h1 {
+        font-size: 28px;
+    }
+    
+    .card-body {
         padding: 20px;
     }
     
-    .compra-exitosa .botones-accion {
-        flex-direction: column;
+    .acciones-grid {
+        grid-template-columns: 1fr;
     }
     
-    .compra-exitosa .btn-compra {
+    .total-monto {
+        font-size: 28px;
+    }
+    
+    .producto-item-simple {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .producto-precio-simple {
+        width: 100%;
+        text-align: right;
+    }
+}
+
+/* ========================================
+   ESTILOS PARA MIS PEDIDOS EN PERFIL
+   ======================================== */
+
+.pedidos-section {
+    margin-top: 50px;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.pedidos-titulo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 24px;
+    color: #1a1a1a;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+/* Estado vacío */
+.pedidos-vacio {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.pedidos-vacio svg {
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.pedidos-vacio p {
+    color: #666;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.btn-ver-catalogo {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-ver-catalogo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Lista de pedidos */
+.pedidos-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Card de pedido */
+.pedido-card {
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s;
+    background: #fafafa;
+}
+
+.pedido-card:hover {
+    border-color: #667eea;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.15);
+}
+
+/* Header del pedido */
+.pedido-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.pedido-numero {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.pedido-numero strong {
+    font-size: 18px;
+    color: #1a1a1a;
+}
+
+.pedido-fecha {
+    font-size: 14px;
+    color: #666;
+}
+
+.pedido-total {
+    font-size: 24px;
+    font-weight: 700;
+    color: #4CAF50;
+}
+
+/* Productos del pedido */
+.pedido-productos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.pedido-producto-item {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 15px;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.pedido-producto-item:last-child {
+    border-bottom: none;
+}
+
+.producto-nombre-pedido {
+    color: #1a1a1a;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.producto-cantidad-pedido {
+    color: #666;
+    font-size: 14px;
+    background: white;
+    padding: 4px 12px;
+    border-radius: 12px;
+}
+
+.producto-subtotal-pedido {
+    color: #1a1a1a;
+    font-weight: 600;
+    font-size: 15px;
+    text-align: right;
+    min-width: 100px;
+}
+
+/* Footer del pedido */
+.pedido-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 2px solid #e0e0e0;
+}
+
+.pedido-estado {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.estado-completado {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.btn-ver-detalle {
+    padding: 8px 20px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-ver-detalle:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .pedidos-section {
+        padding: 20px;
+        margin-top: 30px;
+    }
+
+    .pedido-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .pedido-total {
+        font-size: 20px;
+    }
+
+    .pedido-producto-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .producto-subtotal-pedido {
+        text-align: left;
+    }
+
+    .pedido-footer {
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+    }
+
+    .btn-ver-detalle {
         width: 100%;
     }
+}
+
+.main-content {
+    flex-grow: 1; /* 4. (La magia está aquí) Ordena a este contenedor que crezca y ocupe todo el espacio sobrante */
 }

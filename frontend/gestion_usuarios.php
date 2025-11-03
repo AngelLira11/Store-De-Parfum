@@ -30,8 +30,7 @@ if ($_SESSION['is_admin'] !== true) {
         </ul>
     </nav>
 </header>
-
-<div class="admin-container">
+<div class="admin-container main-content">
     <div class="welcome-section">
         <h2>Administración de Usuarios</h2>
         <p>Aquí puedes ver, crear, editar y eliminar usuarios.</p>
@@ -84,6 +83,12 @@ if ($_SESSION['is_admin'] !== true) {
         </table>
     </div>
 </div>
-
+        <footer class="redes-sociales">
+        <div class="redes-container">
+            <a href="#"><img src="img/icons/facebook.png" alt="facebook"></a>
+            <a href="#"><img src="img/icons/twitter.png" alt="twitter"></a>
+            <a href="#"><img src="img/icons/instagram-new.png" alt="instagram"></a>
+        </div>
+    </footer>
 </body>
 </html>

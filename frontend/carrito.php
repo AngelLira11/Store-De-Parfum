@@ -54,7 +54,7 @@ if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
 <body>
     <?php include("../backend/header.php"); ?>
 
-    <div class="carrito-container">
+    <div class="carrito-container main-content">
         <h1 class="carrito-titulo">Tu Carrito</h1>
         
         <?php if (empty($productos_en_carrito)): ?>
@@ -193,9 +193,15 @@ if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
             },
             onError: function(err) {
                 console.error("Error en PayPal:", err);
-                alert("Ocurrió un error con PayPal. Por favor intenta nuevamente.");
             }
         }).render("#paypal-button-container");
     </script>
+        <footer class="redes-sociales">
+        <div class="redes-container">
+            <a href="#"><img src="img/icons/facebook.png" alt="facebook"></a>
+            <a href="#"><img src="img/icons/twitter.png" alt="twitter"></a>
+            <a href="#"><img src="img/icons/instagram-new.png" alt="instagram"></a>
+        </div>
+    </footer>
 </body>
 </html>

@@ -29,7 +29,7 @@ if ($_SESSION['is_admin'] !== true) {
     </nav>
 </header>
 
-<div class="admin-container form-container">
+<div class="admin-container form-container main-content">
     <h2>Datos del Nuevo Usuario</h2>
     <form action="../backend/guardar_usuario.php" method="POST">
         <div class="form-group">
@@ -58,6 +58,12 @@ if ($_SESSION['is_admin'] !== true) {
         <button type="submit" class="btn btn-primary">Guardar Usuario</button>
     </form>
 </div>
-
+        <footer class="redes-sociales">
+        <div class="redes-container">
+            <a href="#"><img src="img/icons/facebook.png" alt="facebook"></a>
+            <a href="#"><img src="img/icons/twitter.png" alt="twitter"></a>
+            <a href="#"><img src="img/icons/instagram-new.png" alt="instagram"></a>
+        </div>
+    </footer>
 </body>
 </html>
