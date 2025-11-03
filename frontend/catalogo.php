@@ -10,8 +10,7 @@ if ($conn->connect_error) {
 }
 // --- FIN DEPURACIÓN ---
 
-// Consulta para obtener los productos activos del catálogo
-$query = "SELECT product_id, nomb_product, img_product FROM productos WHERE estado = 'disponible' ORDER BY product_id ASC";
+$query = "SELECT product_id, nomb_product, img_product FROM productos ORDER BY product_id ASC";
 $result = $conn->query($query);
 
 // --- INICIO DEPURACIÓN: Verifica la consulta ---

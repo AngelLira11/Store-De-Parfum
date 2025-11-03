@@ -7,6 +7,7 @@
 body {
     background-color: #f4f4f4;
     font-family: 'Helvetica', Arial, sans-serif;
+    
 }
 
 :root {
@@ -31,7 +32,7 @@ body {
     display: flex;
     width: 100%;
     max-width: 1200px;
-    margin: 10px auto;
+    margin: 10px auto 40px auto; /* ← margen inferior agregado */
     padding: 0 15px;
     background-color: var(--color-200);
 }
@@ -209,4 +210,12 @@ body {
     .precio { font-size: 2.8rem; }
     .butt { display: flex; justify-content: center; margin-top: 30px; }
     .btn-agregar-carrito { width: 100%; font-size: 1.1rem; padding: 15px !important; }
+}
+
+.main-content {
+    margin-bottom: 50px; /* 👈 espacio antes del footer */
+}
+
+footer.redes-sociales {
+    margin-top: 60px; /* 👈 agrega espacio real entre el contenido y el footer */
 }

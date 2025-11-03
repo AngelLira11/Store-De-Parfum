@@ -87,7 +87,7 @@ $cantidad_a_mostrar = isset($_SESSION[$sesion_key]) ? (int)$_SESSION[$sesion_key
 <body>
     <?php include("../backend/header.php"); ?>
 
-    <div class="container">
+    <div class="container main-content">
         <div class="section">
             <img class="img_1" 
                  src="<?php echo htmlspecialchars($producto['img_product']); ?>" 
@@ -154,5 +154,13 @@ $cantidad_a_mostrar = isset($_SESSION[$sesion_key]) ? (int)$_SESSION[$sesion_key
             </div>
         </div>
     </div>
+
+        <footer class="redes-sociales">
+        <div class="redes-container">
+            <a href="#"><img src="img/icons/facebook.png" alt="facebook"></a>
+            <a href="#"><img src="img/icons/twitter.png" alt="twitter"></a>
+            <a href="#"><img src="img/icons/instagram-new.png" alt="instagram"></a>
+        </div>
+    </footer>
 </body>
 </html>
