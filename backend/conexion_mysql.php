@@ -1,9 +1,9 @@
 <?php
 
-$servername = "localhost"; // Hay que cambiar esto cuando se suba al servidor
-$username = "root";
-$password = "";
-$dbname = "sistema_venta"; // Funciona en el XAMPP
+$servername = "sql113.byetcluster.com"; // Hay que cambiar esto cuando se suba al servidor
+$username = "if0_40318520";
+$password = "ctmborsuk1";
+$dbname = "if0_40318520_sistema_venta"; // Funciona en el XAMPP
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
