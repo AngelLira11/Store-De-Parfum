@@ -61,9 +61,14 @@ $contador_productos = 0;
             <h2 class="subtitulo"><span>Nuestros Productos</span></h2>
         </div>
 
+        <div class="buscador-container">
+            <input type="text" id="buscador" class="buscador-input" placeholder="Buscar producto...">
+        </div>
+
         <sec class="cata">
 
             <div class="mostrador" id="mostrador">
+                <div id="no-resultados" style="display: none;">No se encontraron productos que coincidan con tu búsqueda.</div>
             
             <?php 
             // Solo si se encontraron productos, comenzamos a dibujar las filas
@@ -85,7 +90,18 @@ $contador_productos = 0;
                             
                             <a href="plantilla_producto.php?id=<?php echo htmlspecialchars($producto['product_id']); ?>">
                                 
-                                <img src="<?php echo htmlspecialchars($producto['img_product']); ?>" alt="<?php echo htmlspecialchars($producto['nomb_product']); ?>">
+                                <img src="<?php 
+    $ruta = $producto['img_product'];
+    
+    // Verificamos si la ruta contiene "http" (es de internet)
+    if (strpos($ruta, 'http') !== false) {
+        echo $ruta; 
+    } 
+    // Si NO tiene http, es local, así que le agregamos "../" para salir de la carpeta productos
+    else {
+        echo '../' . $ruta; 
+    }
+?>" alt="<?php echo htmlspecialchars($producto['nomb_product']); ?>">
                                 <p class="descripcion"><?php echo htmlspecialchars($producto['nomb_product']); ?></p>
                             </a>
                         </div>
@@ -112,5 +128,6 @@ $contador_productos = 0;
         </div>
     </footer>
     
+    <script src="../assets/js/buscador.js"></script>
 </body>
 </html>

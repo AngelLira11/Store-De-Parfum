@@ -250,6 +250,38 @@ header {
 	margin-bottom: 0;
 }
 
+/* --- Buscador --- */
+.buscador-container {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 0 15px;
+}
+
+.buscador-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: 2px solid var(--color-200);
+    border-radius: 25px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.buscador-input:focus {
+    border-color: var(--color-500);
+}
+
+#no-resultados {
+    text-align: center;
+    width: 100%;
+    grid-column: 1 / -1; /* Ocupa todo el ancho del grid */
+    padding: 20px;
+    font-size: 1.2rem;
+    color: var(--color-600);
+    display: none;
+}
+
 /* ======================================================= */
 /* MEDIA QUERIES (Adaptación a Tablets y Desktop) */
 /* ======================================================= */
