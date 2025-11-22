@@ -88,5 +88,6 @@ if ($result->num_rows > 0) {
             <a href="#"><img src="../assets/img/icons/instagram-new.png" alt="instagram"></a>
         </div>
     </footer>
+    <script src="../assets/js/validacion_admin_editar.js"></script>
 </body>
 </html>

@@ -63,5 +63,6 @@ session_start();
             <a href="#"><img src="img/icons/instagram-new.png" alt="instagram"></a>
         </div>
     </footer>
+    <script src="../assets/js/validacion_registro.js"></script>
 </body>
 </html>
