@@ -91,9 +91,20 @@ $cantidad_a_mostrar = isset($_SESSION[$sesion_key]) ? (int)$_SESSION[$sesion_key
     ?>
 
     <div class="container main-content">
-        <div class="section">
+        <div class="section"> 
             <img class="img_1" 
-                 src="../assets/<?php echo htmlspecialchars($producto['img_product']); ?>" 
+                 src="<?php 
+    $ruta = $producto['img_product'];
+    
+    // Verificamos si la ruta contiene "http" (es de internet)
+    if (strpos($ruta, 'http') !== false) {
+        echo $ruta; 
+    } 
+    // Si NO tiene http, es local, así que le agregamos "../" para salir de la carpeta productos
+    else {
+        echo '../' . $ruta; 
+    }
+?>" 
                  alt="Imagen de <?php echo htmlspecialchars($producto['nomb_product']); ?>">
         </div>
 
