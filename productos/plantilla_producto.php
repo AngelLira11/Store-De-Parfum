@@ -131,24 +131,22 @@ $cantidad_a_mostrar = isset($_SESSION[$sesion_key]) ? (int)$_SESSION[$sesion_key
             </div>
             
             <div class="parrafo">
-                <img src="img/icons/camion.png" alt="Envío">
+                <img src="../assets/img/icons/camion.png" alt="Envío">
                 <p>Envíos Gratis a todo el país</p>
             </div>
 
             <div class="cantidad-control">
                 <p>Cantidad:</p>
                 <div class="input-group">
-                    <form method="POST" style="display:inline;">
-                        <input type="hidden" name="action" value="restar">
-                        <button type="submit" class="btn-cantidad" <?php if (!$producto_disponible) echo 'disabled'; ?>>-</button>
-                    </form>
+                    <!-- Botones controlados por JS -->
+                    <button type="button" id="btn-restar" class="btn-cantidad" <?php if (!$producto_disponible) echo 'disabled'; ?>>-</button>
                     
-                    <input type="text" id="input-cantidad" value="<?php echo htmlspecialchars($cantidad_a_mostrar); ?>" readonly>
+                    <input type="text" id="input-cantidad" value="1" readonly>
                     
-                    <form method="POST" style="display:inline;">
-                        <input type="hidden" name="action" value="sumar">
-                        <button type="submit" class="btn-cantidad" <?php if (!$producto_disponible) echo 'disabled'; ?>>+</button>
-                    </form>
+                    <button type="button" id="btn-sumar" class="btn-cantidad" <?php if (!$producto_disponible) echo 'disabled'; ?>>+</button>
+                    
+                    <!-- Input oculto para el stock máximo -->
+                    <input type="hidden" id="stock-maximo" value="<?php echo $stock_maximo; ?>">
                 </div>
             </div>
 
@@ -159,8 +157,10 @@ $cantidad_a_mostrar = isset($_SESSION[$sesion_key]) ? (int)$_SESSION[$sesion_key
             </div>
             
             <div class="butt">
-                <form method="POST">
-                    <input type="hidden" name="action_carrito" value="agregar">
+                <form action="../ventas/carrito_logica.php" method="POST">
+                    <input type="hidden" name="product_id" value="<?php echo $id_producto; ?>">
+                    <input type="hidden" name="cantidad" id="cantidad-final" value="1">
+                    <input type="hidden" name="action" value="add">
                     <button type="submit" class="btn-agregar-carrito" style="padding: 10px 20px; background-color: #6a6a9b; color: white; border: none; cursor: pointer;" <?php if (!$producto_disponible) echo 'disabled'; ?>>
                         AGREGAR AL CARRITO
                     </button>
@@ -171,10 +171,11 @@ $cantidad_a_mostrar = isset($_SESSION[$sesion_key]) ? (int)$_SESSION[$sesion_key
 
         <footer class="redes-sociales">
         <div class="redes-container">
-            <a href="#"><img src="img/icons/facebook.png" alt="facebook"></a>
-            <a href="#"><img src="img/icons/twitter.png" alt="twitter"></a>
-            <a href="#"><img src="img/icons/instagram-new.png" alt="instagram"></a>
+            <a href="#"><img src="../assets/img/icons/facebook.png" alt="facebook"></a>
+            <a href="#"><img src="../assets/img/icons/twitter.png" alt="twitter"></a>
+            <a href="#"><img src="../assets/img/icons/instagram-new.png" alt="instagram"></a>
         </div>
     </footer>
+    <script src="../assets/js/producto.js"></script>
 </body>
 </html>
