@@ -85,18 +85,7 @@ $contador_productos = 0;
                             
                             <a href="plantilla_producto.php?id=<?php echo htmlspecialchars($producto['product_id']); ?>">
                                 
-                                <img src="<?php 
-    $ruta = $producto['img_product'];
-    
-    // Verificamos si la ruta contiene "http" (es de internet)
-    if (strpos($ruta, 'http') !== false) {
-        echo $ruta; 
-    } 
-    // Si NO tiene http, es local, así que le agregamos "../" para salir de la carpeta productos
-    else {
-        echo '../' . $ruta; 
-    }
-?>" alt="<?php echo htmlspecialchars($producto['nomb_product']); ?>">
+                                <img src="<?php echo htmlspecialchars($producto['img_product']); ?>" alt="<?php echo htmlspecialchars($producto['nomb_product']); ?>">
                                 <p class="descripcion"><?php echo htmlspecialchars($producto['nomb_product']); ?></p>
                             </a>
                         </div>
