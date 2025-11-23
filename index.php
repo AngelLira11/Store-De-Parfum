@@ -23,6 +23,8 @@ session_start();
 	include("includes/header.php"); 
 	?>
 
+	<br><br>
+
 	<main class="container">
 		<div class="nosotros">
 			<div class="nosotros-content">
@@ -79,12 +81,65 @@ Ofrecer una amplia gama de perfumes y productos relacionados que satisfagan las 
 					</figure>
 				</article>
 
-		<a href="productos/catalogo.php">
-			<button class="btn-productos">Todos los productos</button>
-		</a>			
+			
+		
+				
+
+
+
 		</div>
 		</div>
 	</main>
+
+	<div id="fragrance-test-container">
+    <h2>Encuentra Tu Fragancia Ideal</h2>
+    <div id="questions-container"></div>
+    <button id="start-test-btn" onclick="startTest()">Comenzar Test</button>
+    <button id="submit-test-btn" style="display: none;">Ver Mi Fragancia Ideal</button>
+    <div id="result-container" style="margin-top: 20px;"></div>
+</div>
+
+<script src="script.js"></script>
+<br><br>
+
+	<style>
+
+		#fragrance-test-container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 20px auto;
+}
+.question-block {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+input[type="radio"] {
+    margin-right: 8px;
+}
+button {
+    padding: 10px 15px;
+    background-color: #4265BD;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+button:hover {
+    background-color: #555;
+}
+
+    </style>
 
 	<div class="separador">
 		<p class="texto-separador"><q>DESCUBRE NUESTRAS MARCAS DE LUJO</q></p>
@@ -152,12 +207,12 @@ Ofrecer una amplia gama de perfumes y productos relacionados que satisfagan las 
 		</section>
 
 		<footer class="redes-sociales">
-			<div class="redes-container">
-				<a href="#" title="Facebook"><img src="assets/img/icons/facebook.png" alt="Facebook"></a>
-				<a href="#" title="Twitter"><img src="assets/img/icons/twitter.png" alt="Twitter"></a>
-				<a href="#" title="Instagram"><img src="assets/img/icons/instagram-new.png" alt="Instagram"></a>
-			</div>
-		</footer>
+        <div class="redes-container">
+            <a href="#"><img src="assets/img/icons/facebook.png" alt="facebook"></a>
+            <a href="#"><img src="assets/img/icons/twitter.png" alt="twitter"></a>
+            <a href="#"><img src="assets/img/icons/instagram-new.png" alt="instagram"></a>
+        </div>
+    </footer>
 	</div>
 
 </body>

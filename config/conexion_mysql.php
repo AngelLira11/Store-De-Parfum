@@ -11,7 +11,7 @@ $dbname = "if0_40318520_sistema_venta"; */
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "sistema_venta2"; 
+$dbname = "sistema_venta"; 
 
 
 $conn = new mysqli($servername, $username, $password, $dbname);

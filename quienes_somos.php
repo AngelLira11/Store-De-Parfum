@@ -1,6 +1,8 @@
 <?php
 session_start();
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,13 +72,13 @@ session_start();
     </div>
 
 
-         <footer class="row justify-content-center redes-sociales">
-			<div class="col-auto">
-				<a href="#"><img src="img/icons/facebook.png" alt="facebook"></a>
-				<a href="#"><img src="img/icons/twitter.png" alt="twitter"></a>
-				<a href="#"><img src="img/icons/instagram-new.png" alt="instagram"></a>
-			</div>
-         </footer>
+         <<footer class="redes-sociales">
+        <div class="redes-container">
+            <a href="#"><img src="assets/img/icons/facebook.png" alt="facebook"></a>
+            <a href="#"><img src="assets/img/icons/twitter.png" alt="twitter"></a>
+            <a href="#"><img src="assets/img/icons/instagram-new.png" alt="instagram"></a>
+        </div>
+    </footer>
 
 
 

@@ -58,9 +58,9 @@ session_start();
 
     <footer class="redes-sociales">
         <div class="redes-container">
-            <a href="#"><img src="img/icons/facebook.png" alt="facebook"></a>
-            <a href="#"><img src="img/icons/twitter.png" alt="twitter"></a>
-            <a href="#"><img src="img/icons/instagram-new.png" alt="instagram"></a>
+            <a href="#"><img src="../assets/img/icons/facebook.png" alt="facebook"></a>
+            <a href="#"><img src="../assets/img/icons/twitter.png" alt="twitter"></a>
+            <a href="#"><img src="../assets/img/icons/instagram-new.png" alt="instagram"></a>
         </div>
     </footer>
 </body>
