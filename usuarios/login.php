@@ -44,6 +44,9 @@ session_start();
                     <div class="form-group">
                         <label for="password">Contraseña:</label>
                         <input type="password" id="password" name="password" placeholder="••••••••" minlength="6" maxlength="12" required>
+                        <div style="margin-top: 10px;">
+                            <input type="checkbox" id="togglePassword"> <label for="togglePassword" style="display:inline; font-weight:normal; font-size: 0.9rem;">Mostrar contraseña</label>
+                        </div>
                     </div>                    
                     <input type="submit" value="Iniciar Sesión">
                 </form>
@@ -58,5 +61,6 @@ session_start();
             <a href="#"><img src="../assets/img/icons/instagram-new.png" alt="instagram"></a>
         </div>
     </footer>
+    <script src="../assets/js/validacion_login.js"></script>
 </body>
 </html>

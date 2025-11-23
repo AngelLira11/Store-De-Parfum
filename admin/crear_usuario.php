@@ -65,5 +65,6 @@ if ($_SESSION['is_admin'] !== true) {
             <a href="#"><img src="../assets/img/icons/instagram-new.png" alt="instagram"></a>
         </div>
     </footer>
+    <script src="../assets/js/validacion_admin_crear.js"></script>
 </body>
 </html>

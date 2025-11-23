@@ -152,7 +152,7 @@ while ($row = $result_list->fetch_assoc()) {
             <p class="mensaje <?php echo (strpos($mensaje_agregar, '✅') !== false) ? 'success' : 'error'; ?>"><?php echo $mensaje_agregar; ?></p>
         <?php endif; ?>
         
-        <form method="POST">
+        <form id="form-agregar-producto" method="POST">
             <input type="hidden" name="action" value="agregar">
             
             <label for="nomb_product">Nombre del Producto:</label>
@@ -196,7 +196,7 @@ while ($row = $result_list->fetch_assoc()) {
             <p class="mensaje <?php echo (strpos($mensaje_buscar, '✅') !== false) ? 'success' : 'error'; ?>"><?php echo $mensaje_buscar; ?></p>
         <?php endif; ?>
         
-        <form method="POST" style="display: flex; gap: 10px; align-items: flex-end;">
+        <form id="form-buscar-producto" method="POST" style="display: flex; gap: 10px; align-items: flex-end;">
             <input type="hidden" name="action" value="buscar">
             <div style="flex-grow: 1;">
                 <label for="product_id">ID del Producto a Modificar:</label>
@@ -208,7 +208,7 @@ while ($row = $result_list->fetch_assoc()) {
         <?php if ($producto_a_modificar): ?>
             <hr>
             <h3>Paso 2: Modificar Producto ID #<?php echo $producto_a_modificar['product_id']; ?></h3>
-            <form method="POST">
+            <form id="form-editar-producto" method="POST">
                 <input type="hidden" name="action" value="modificar">
                 <input type="hidden" name="product_id_modificar" value="<?php echo $producto_a_modificar['product_id']; ?>">
                 
@@ -249,5 +249,6 @@ while ($row = $result_list->fetch_assoc()) {
             <a href="#"><img src="img/icons/instagram-new.png" alt="instagram"></a>
         </div>
     </footer>
+    <script src="../assets/js/validacion_modificar_productos.js"></script>
 </body>
 </html>

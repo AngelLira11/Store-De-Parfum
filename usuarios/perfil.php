@@ -82,15 +82,15 @@ $pedidos = $result_pedidos->fetch_all(MYSQLI_ASSOC);
                 </p>
                 
                 <!-- Formulario de edición -->
-                <form action="actualizar_perfil.php" method="POST"> 
+                <form action="actualizar_perfil.php" method="POST" autocomplete="off"> 
                     <label for="nuevo_email">Editar Correo Electrónico:</label>
-                    <input type="email" id="nuevo_email" name="nuevo_email" placeholder="Nuevo correo electrónico">
+                    <input type="email" id="nuevo_email" name="nuevo_email" placeholder="Nuevo correo electrónico" autocomplete="new-email">
                     
                     <label for="nuevo_telefono">Editar Número de Teléfono:</label>
-                    <input type="text" id="nuevo_telefono" name="nuevo_telefono" placeholder="Nuevo teléfono">
+                    <input type="text" id="nuevo_telefono" name="nuevo_telefono" placeholder="Nuevo teléfono" autocomplete="off">
                     
                     <label for="nueva_contrasena">Nueva Contraseña:</label>
-                    <input type="password" id="nueva_contrasena" name="nueva_contrasena" placeholder="Nueva contraseña (dejar en blanco para no cambiar)">
+                    <input type="password" id="nueva_contrasena" name="nueva_contrasena" placeholder="Nueva contraseña (dejar en blanco para no cambiar)" autocomplete="new-password">
                     
                     <button type="submit" class="btn-primario">Actualizar Perfil</button>
                 </form>
@@ -190,5 +190,6 @@ $pedidos = $result_pedidos->fetch_all(MYSQLI_ASSOC);
             <a href="#"><img src="../assets/img/icons/instagram-new.png" alt="instagram"></a>
         </div>
     </footer>
+    <script src="../assets/js/validacion_perfil.js"></script>
 </body>
 </html>
